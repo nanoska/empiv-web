@@ -27,6 +27,6 @@ Sigue estos pasos para ejecutar el proyecto localmente:
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tuusuario/escuela-de-musica.git
-   cd escuela-de-musica
+   git clone https://github.com/nanoska/empiv-web.git
+   cd empiv-web
 

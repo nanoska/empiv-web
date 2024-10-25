@@ -1,20 +1,20 @@
 {% extends "base.html" %}
-{% load static %}
-
 {% load crispy_forms_tags %}
 
-{% block title %}Crear Clase Particular{% endblock %}
+{% block title %}Crear Clase Individual{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
-    <h2 class="text-center mb-4">Crear Clase Particular</h2>
+    <h2 class="text-center mb-4">Crear Clase Individual</h2>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button type="submit" class="btn btn-success w-100">Guardar</button>
-                <a href="{% url 'single_lesson_list' %}" class="btn btn-secondary w-100 mt-2">Cancelar</a>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <a href="{% url 'single_lesson_list' %}" class="btn btn-secondary mt-2">Cancelar</a>
+                </div>
             </form>
         </div>
     </div>

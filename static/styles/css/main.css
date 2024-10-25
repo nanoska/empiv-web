@@ -5,11 +5,13 @@
 @import url('components/carousel.css');
 @import url('components/cards.css');
 @import url('components/cards-events.css');
+@import url('components/cards-home.css');
 @import url('components/forms.css');
 @import url('components/video.css');
 @import url('components/404.css');
 @import url('components/media.css');
 @import url('components/iframe.css');
+@import url('components/buttons.css');
 
 /* Secciones */
 @import url('sections/home.css');

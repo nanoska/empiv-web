@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-    
 class Location(models.Model):
     name = models.CharField(max_length=255)
     city = models.CharField(max_length=255, default="Buenos Aires") # Cuidad (Buenos Aires)
@@ -19,7 +17,6 @@ class Location(models.Model):
     def __str__(self):
         return self.name
     
-
 
 class Event(models.Model):
     name = models.CharField(max_length=255)

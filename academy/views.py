@@ -1,7 +1,8 @@
 from django.shortcuts import render
+from django.contrib.admin.views.decorators import staff_member_required
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.mixins import UserPassesTestMixin
+from core.mixins import StaffRequiredMixin
 from django.urls import reverse_lazy
 
 from .models import *
@@ -24,24 +25,24 @@ class WorkshopDetailView(DetailView):
     context_object_name = 'workshop'
 
 
-class WorkshopCreateView(CreateView):
+class WorkshopCreateView(LoginRequiredMixin, StaffRequiredMixin, CreateView):
     model = Workshop
     template_name = 'academy/workshops/workshop_form.html'
-    fields = ['name', 'description', 'image']
-    success_url = '/talleres/'
+    fields = '__all__'
+    success_url = '/academia/talleres'
 
 
-class WorkshopUpdateView(UpdateView):
+class WorkshopUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
     model = Workshop
     template_name = 'academy/workshops/workshop_update_form.html'
     fields = '__all__'
-    success_url = '/talleres/'
+    success_url = 'academia/talleres/'
 
 
-class WorkshopDeleteView(DeleteView):
+class WorkshopDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
     model = Workshop
     template_name = 'academy/workshops/workshop_confirm_delete.html'
-    success_url = '/talleres/'
+    success_url = 'academia/talleres/'
 
 
 # class MyWorkshopListView(ListView):
@@ -67,24 +68,24 @@ class SingleLessonDetailView(DetailView):
     context_object_name = 'clase'
 
 
-class SingleLessonCreateView(CreateView):
+class SingleLessonCreateView(LoginRequiredMixin, StaffRequiredMixin, CreateView):
     model = SingleClass
     template_name = 'academy/single_lessons/single_lesson_form.html'
     fields = '__all__'
-    success_url = '/clases-particulares/'
+    success_url = '/academia/clases-particulares/'
 
 
-class SingleLessonUpdateView(UpdateView):
+class SingleLessonUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
     model = SingleClass
     template_name = 'academy/single_lessons/single_lesson_update_form.html'
     fields = '__all__'
-    success_url = '/clases-particulares/'
+    success_url = '/academia/clases-particulares/'
 
 
-class SingleLessonDeleteView(DeleteView):
+class SingleLessonDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
     model = SingleClass
     template_name = 'academy/single_lessons/single_lesson_confirm_delete.html'
-    success_url = '/clases-particulares/'
+    success_url = '/academia/clases-particulares/'
     
 
 # %% Repertoire

@@ -44,7 +44,7 @@
   background-color: #333; /* Fondo oscuro para las tarjetas */
   color: #ddd; /* Texto claro para las tarjetas */
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Sombra clara para las tarjetas */
-  border-radius: 10px; /* Bordes redondeados para las tarjetas */
+  border-radius: 10px !important; /* Bordes redondeados para las tarjetas */
 }
 
 .dark-mode .card-title {
@@ -53,6 +53,7 @@
 
 .dark-mode .card-body {
   background-color: #333; /* Fondo oscuro para el cuerpo de las tarjetas */
+  border-radius: inherit; /* Hereda el radio de los bordes de las tarjetas */
 }
 
 /* Tablas */

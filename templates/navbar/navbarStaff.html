@@ -33,6 +33,12 @@
       <i class="fa-solid fa-paint-brush fa-lg"></i> Talleres
     </a>
   </li>
+
+  <!-- Clases Particulares -->
+  <li class="nav-item">
+    <a class="nav-link {% if "clases-particulares" in request.path %}active{% endif %}" href="{% url 'single_lesson_list' %}">
+      <i class="fa-solid fa-user-graduate fa-lg"></i> Clases Particulares
+    </a>
   
   {% comment %} <!-- Biblioteca -->
   <li class="nav-item dropdown">
@@ -71,12 +77,12 @@
       <a class="dropdown-item {% if "eventos/list" in request.path %}active{% endif %}" href="{% url 'events' %}">
         <i class="fa-regular fa-calendar-check"></i> Ver eventos
       </a>
-      <a class="dropdown-item {% if "evento/create" in request.path %}active{% endif %}" href="{% url 'event_create' %}">
+      {% comment %} <a class="dropdown-item {% if "evento/create" in request.path %}active{% endif %}" href="{% url 'event_create' %}">
         <i class="fa-solid fa-calendar-plus"></i> Crear evento
       </a>
       <a class="dropdown-item {% if "locacion/create" in request.path %}active{% endif %}" href="{% url 'location_create' %}">
         <i class="fa-solid fa-plus"></i> Agregar locación
-      </a>
+      </a> {% endcomment %}
       {% comment %} <a class="dropdown-item {% if "repertorio/create" in request.path %}active{% endif %}" href="{% url 'repertoire_create' %}">
         <i class="fa-solid fa-plus"></i> Agregar repertorio
       </a> {% endcomment %}
