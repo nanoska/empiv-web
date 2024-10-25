@@ -42,31 +42,31 @@ class LocationForm(forms.ModelForm):
 
 
 
-class ReservationForm(forms.ModelForm):
-    class Meta:
-        model = Reservation
-        fields = ['event', 'name', 'email', 'phone']
-        widgets = {
-            'event': forms.Select(attrs={'class': 'form-control'}),
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Teléfono'}),
-        }
+# class ReservationForm(forms.ModelForm):
+#     class Meta:
+#         model = Reservation
+#         fields = ['event', 'name', 'email', 'phone']
+#         widgets = {
+#             'event': forms.Select(attrs={'class': 'form-control'}),
+#             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre'}),
+#             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
+#             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Teléfono'}),
+#         }
 
 
-class EventReservationForm(forms.ModelForm):
-    class Meta:
-        model = Reservation
-        fields = ['event', 'name', 'email', 'phone']
+# class EventReservationForm(forms.ModelForm):
+#     class Meta:
+#         model = Reservation
+#         fields = ['event', 'name', 'email', 'phone']
 
-        widgets = {
-            'event': forms.Select(attrs={'class': 'form-control'}),
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-            'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ej: 11 1234-5678'}),
-        }
+#         widgets = {
+#             'event': forms.Select(attrs={'class': 'form-control'}),
+#             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre'}),
+#             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
+#             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ej: 11 1234-5678'}),
+#         }
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['event'].widget.attrs['readonly'] = True
-        self.fields['event'].disabled = True
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         self.fields['event'].widget.attrs['readonly'] = True
+#         self.fields['event'].disabled = True

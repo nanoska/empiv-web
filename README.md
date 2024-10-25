@@ -1,42 +1,32 @@
-Aplicación web para escuela de música
-Este proyecto es una aplicación web diseñada para una escuela de música, con un backend desarrollado en Python y un frontend en Javascript.
+# Escuela de Música - Página Web
 
-Requisitos previos
-Asegúrate de tener instalado Python en tu sistema. Puedes descargarlo desde python.org.
+Este es el repositorio del proyecto de la **Escuela de Música**, una página web desarrollada con **Django**. Actualmente, la aplicación ofrece una interfaz para mostrar información estática sobre la escuela, accesible para usuarios anónimos. El proyecto está en desarrollo, y más funcionalidades interactivas se añadirán en el futuro.
 
-Instalación
-Clona este repositorio en tu máquina local:
-git clone https://github.com/nanoska/web_empiv
+## Funcionalidades Actuales
 
-Accede al directorio del proyecto:
-cd web_empiv
+- **Front-end con Django Templates**: La página está diseñada utilizando los templates de Django para estructurar el HTML.
+- **Información Estática**: Los visitantes pueden ver información básica sobre la escuela de música, como horarios de clases, descripción de los cursos y biografías de los profesores.
+- **Usuarios Anónimos**: Por ahora, no se requiere autenticación. La información es accesible para todos los usuarios.
 
-Instala las dependencias del backend:
-pip install -r requirements.txt
+## Tecnologías Utilizadas
 
-Instala las dependencias del frontend:
-cd frontend npm install
+- **Django**: Framework principal para el desarrollo web.
+- **HTML y CSS**: Para el diseño de la página.
+- **Django Templates**: Sistema de templates integrado para el manejo de las vistas.
+- **Python**: Lenguaje de programación backend.
 
-Configuración
-Antes de ejecutar la aplicación, asegúrate de configurar correctamente el archivo de configuración config.py en la carpeta backend. Aquí puedes establecer la configuración de la base de datos u otros parámetros según sea necesario.
+## Requisitos del Sistema
 
-Ejecución
-Para ejecutar el backend, desde el directorio raíz del proyecto, utiliza el siguiente comando:
-python3 manage.py runserver
+- **Python 3.8+**
+- **Django 4.0+**
+- **pipenv** o **virtualenv** (recomendado para el manejo de entornos virtuales)
 
-Esto iniciará el servidor backend en http://localhost:5000.
+## Instalación
 
-Para ejecutar el frontend, desde el directorio frontend, utiliza el siguiente comando:
-npm start
+Sigue estos pasos para ejecutar el proyecto localmente:
 
-Esto iniciará el servidor de desarrollo del frontend en http://localhost:3000.
-
-Uso
-Una vez que ambos servidores estén en funcionamiento, puedes acceder a la aplicación abriendo tu navegador y navegando a http://localhost:3000. Aquí podrás interactuar con la aplicación web de la escuela de música.
-
-Contribuciones
-Las contribuciones son bienvenidas. Si deseas contribuir a este proyecto, asegúrate de abrir un problema primero para discutir los cambios propuestos.
-
-Licencia
-Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo LICENSE.
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/tuusuario/escuela-de-musica.git
+   cd escuela-de-musica
 

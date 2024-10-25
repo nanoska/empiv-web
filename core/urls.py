@@ -7,14 +7,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    # path('', include('web.urls')),
+    path('', include('web.urls')),
     path('users/', include('users.urls')),
-    # path('eventos/', include('events.urls')),
-    # path('talleres/', include('workshops.urls')),
+    path('eventos/', include('events.urls')),
+    path('academia/', include('academy.urls')),
     # path('biblioteca/', include('library.urls')),
     # path('musica/', include('music.urls')),
     # path('tareas/', include('tasks.urls')),
-    # path('academia/', include('academy.urls')),
     # path('pagos/', include('payments.urls')),
     # path('tickets/', include('tickets.urls')),
     # path('inbox/', include('inbox.urls')),

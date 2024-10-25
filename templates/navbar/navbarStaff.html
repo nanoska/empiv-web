@@ -1,6 +1,6 @@
 <!-- templates/navbar/navbarStaff.html -->
 <ul class="navbar-nav me-auto">
-  <!-- Alumnos -->
+  {% comment %} <!-- Alumnos -->
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle {% if "student" in request.path %}active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
       <i class="fa-solid fa-graduation-cap fa-lg"></i> Alumnos
@@ -25,7 +25,7 @@
     <a class="nav-link {% if "teachers" in request.path %}active{% endif %}" href="{% url 'under_construction' %}">
       <i class="fa-solid fa-chalkboard-teacher fa-lg"></i> Profesores
     </a>
-  </li>
+  </li> {% endcomment %}
   
   <!-- Talleres -->
   <li class="nav-item">
@@ -34,7 +34,7 @@
     </a>
   </li>
   
-  <!-- Biblioteca -->
+  {% comment %} <!-- Biblioteca -->
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle {% if "library" in request.path %}active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
       <i class="fa-solid fa-book fa-lg"></i> Biblioteca
@@ -60,7 +60,7 @@
     <a class="nav-link {% if "tasks" in request.path %}active{% endif %}" href="{% url 'under_construction' %}">
       <i class="fa-solid fa-tasks fa-lg"></i> Tareas
     </a>
-  </li>
+  </li> {% endcomment %}
   
   <!-- Eventos -->
   <li class="nav-item dropdown">
@@ -77,13 +77,13 @@
       <a class="dropdown-item {% if "locacion/create" in request.path %}active{% endif %}" href="{% url 'location_create' %}">
         <i class="fa-solid fa-plus"></i> Agregar locación
       </a>
-      <a class="dropdown-item {% if "repertorio/create" in request.path %}active{% endif %}" href="{% url 'repertoire_create' %}">
+      {% comment %} <a class="dropdown-item {% if "repertorio/create" in request.path %}active{% endif %}" href="{% url 'repertoire_create' %}">
         <i class="fa-solid fa-plus"></i> Agregar repertorio
-      </a>
+      </a> {% endcomment %}
     </div>
   </li>  
 
-  <li class="nav-item dropdown">
+  {% comment %} <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="adminDataDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       <i class="fa-solid fa-database fa-lg"></i> Administración de Datos
     </a>
@@ -151,5 +151,5 @@
         </ul>
       </li>
     </ul>
-  </li>
+  </li> {% endcomment %}
 </ul>

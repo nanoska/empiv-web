@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block title %}Editar Taller{% endblock %}
 
@@ -10,57 +11,15 @@
         <div class="col-md-8">
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
-                <div class="mb-3">
-                    <label for="{{ form.name.id_for_label }}" class="form-label">{{ form.name.label }}</label>
-                    {{ form.name }}
-                </div>
-                <div class="mb-3">
-                    <label for="{{ form.description.id_for_label }}" class="form-label">{{ form.description.label }}</label>
-                    {{ form.description }}
-                </div>
-                <div class="mb-3">
-                    <label for="{{ form.day.id_for_label }}" class="form-label">{{ form.day.label }}</label>
-                    {{ form.day }}
-                </div>
-                <div class="mb-3">
-                    <label for="{{ form.init_time.id_for_label }}" class="form-label">{{ form.init_time.label }}</label>
-                    {{ form.init_time }}
-                </div>
-                <div class="mb-3">
-                    <label for="{{ form.end_time.id_for_label }}" class="form-label">{{ form.end_time.label }}</label>
-                    {{ form.end_time }}
-                </div>
-                <div class="mb-3">
-                    <label for="{{ form.price.id_for_label }}" class="form-label">{{ form.price.label }}</label>
-                    {{ form.price }}
-                </div>
-                <div class="mb-3">
-                    <label for="{{ form.location.id_for_label }}" class="form-label">{{ form.location.label }}</label>
-                    {{ form.location }}
-                </div>
-                <div class="mb-3">
-                    <label for="{{ form.image.id_for_label }}" class="form-label">{{ form.image.label }}</label>
-                    {{ form.image }}
-                </div>
-                <div class="mb-3">
-                    <label for="{{ form.repertoire.id_for_label }}" class="form-label">{{ form.repertoire.label }}</label>
-                    {{ form.repertoire }}
-                </div>
-                <div class="mb-3">
-                    <label for="{{ form.excercises.id_for_label }}" class="form-label">{{ form.excercises.label }}</label>
-                    {{ form.excercises }}
-                </div>
-                <div class="mb-3">
-                    <label for="{{ form.max_participants.id_for_label }}" class="form-label">{{ form.max_participants.label }}</label>
-                    {{ form.max_participants }}
-                </div>
-                <div class="mb-3">
-                    <label for="{{ form.teachers.id_for_label }}" class="form-label">{{ form.teachers.label }}</label>
-                    {{ form.teachers }}
-                </div>
+                <!-- Renderiza todos los campos automáticamente usando crispy_forms -->
+                {{ form|crispy }}
+
+                <!-- Botón de guardar -->
                 <button type="submit" class="btn btn-success w-100">Guardar</button>
                 <a href="{% url 'workshop_list' %}" class="btn btn-secondary w-100 mt-2">Cancelar</a>
             </form>
+
+            <!-- Mostrar botón adicional solo si el usuario está en la lista de profesores -->
             {% if request.user in workshop.teachers.all %}
             <a href="{% url 'score_create' %}" class="btn btn-warning w-100 mt-2">Agregar Partitura</a>
             {% endif %}

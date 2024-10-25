@@ -34,7 +34,7 @@
     Derechos de autor © 2024:
     <a class="text-white" href="https://empiv.com/">Satori</a>
     | v1.0.0
-    {% if user.is_authenticated %}
+    {% comment %} {% if user.is_authenticated %}
       {% if user.is_staff %}
         <a href="{% url 'ticket_list' %}" class="text-white float-end">
           <i class="fas fa-bug"></i>
@@ -44,6 +44,6 @@
           <i class="fas fa-bug"></i>
         </a>
       {% endif %}
-    {% endif %}
+    {% endif %} {% endcomment %}
   </div>
 </footer>

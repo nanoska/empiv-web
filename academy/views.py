@@ -1,101 +1,93 @@
-# from django.shortcuts import render
-# from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-# from django.contrib.auth.mixins import LoginRequiredMixin
-# from django.contrib.auth.mixins import UserPassesTestMixin
-# from django.urls import reverse_lazy
+from django.shortcuts import render
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
+from django.urls import reverse_lazy
 
-# from .models import *
-# from .forms import *
+from .models import *
+from .forms import *
 
+# %% WORKSHOPS VIEWS
 
+class WorkshopListView(ListView):
+    model = Workshop
+    template_name = 'academy/workshops/workshop_list.html'
+    context_object_name = 'talleres'
 
-# # Create your views here.
-
-# # %% WORKSHOPS VIEWS
-
-# class WorkshopListView(ListView):
-#     model = Workshop
-#     template_name = 'academy/workshops/workshop_list.html'
-#     context_object_name = 'talleres'
-
-#     def get_queryset(self):
-#         return Workshop.objects.all().order_by('created_at')
+    def get_queryset(self):
+        return Workshop.objects.all().order_by('created_at')
     
+
+class WorkshopDetailView(DetailView):
+    model = Workshop
+    template_name = 'academy/workshops/workshop_detail.html'
+    context_object_name = 'workshop'
+
+
+class WorkshopCreateView(CreateView):
+    model = Workshop
+    template_name = 'academy/workshops/workshop_form.html'
+    fields = ['name', 'description', 'image']
+    success_url = '/talleres/'
+
+
+class WorkshopUpdateView(UpdateView):
+    model = Workshop
+    template_name = 'academy/workshops/workshop_update_form.html'
+    fields = '__all__'
+    success_url = '/talleres/'
+
+
+class WorkshopDeleteView(DeleteView):
+    model = Workshop
+    template_name = 'academy/workshops/workshop_confirm_delete.html'
+    success_url = '/talleres/'
+
 
 # class MyWorkshopListView(ListView):
 #     model = Workshop
 #     template_name = 'academy/workshops/workshop_list.html'
 #     context_object_name = 'talleres'
 
-#     # obtener los workshops del usuario logueado que estan relacionados en Enrollment
 #     def get_queryset(self):
 #         return Workshop.objects.all()
 
 
-# class WorkshopDetailView(DetailView):
-#     model = Workshop
-#     template_name = 'academy/workshops/workshop_detail.html'
-#     context_object_name = 'workshop'
+# %% SINGLE LESSONS VIEWS
+
+class SingleLessonsListView(ListView):
+    model = SingleClass
+    template_name = 'academy/single_lessons/single_lessons_list.html'
+    context_object_name = 'clases'
 
 
-# class WorkshopCreateView(CreateView):
-#     model = Workshop
-#     template_name = 'academy/workshops/workshop_form.html'
-#     fields = ['name', 'description', 'image']
-#     success_url = '/talleres/'
+class SingleLessonDetailView(DetailView):
+    model = SingleClass
+    template_name = 'academy/single_lessons/single_lesson_detail.html'
+    context_object_name = 'clase'
 
 
-# class WorkshopUpdateView(UpdateView):
-#     model = Workshop
-#     template_name = 'academy/workshops/workshop_update_form.html'
-#     fields = '__all__'
-#     success_url = '/talleres/'
+class SingleLessonCreateView(CreateView):
+    model = SingleClass
+    template_name = 'academy/single_lessons/single_lesson_form.html'
+    fields = '__all__'
+    success_url = '/clases-particulares/'
 
 
-# class WorkshopDeleteView(DeleteView):
-#     model = Workshop
-#     template_name = 'academy/workshops/workshop_confirm_delete.html'
-#     success_url = '/talleres/'
+class SingleLessonUpdateView(UpdateView):
+    model = SingleClass
+    template_name = 'academy/single_lessons/single_lesson_update_form.html'
+    fields = '__all__'
+    success_url = '/clases-particulares/'
 
 
-
-
-
-# # %% SINGLE LESSONS VIEWS
-
-# class SingleLessonsListView(ListView):
-#     model = SingleClass
-#     template_name = 'academy/single_lessons/single_lessons_list.html'
-#     context_object_name = 'clases'
-
-
-# class SingleLessonDetailView(DetailView):
-#     model = SingleClass
-#     template_name = 'academy/single_lessons/single_lesson_detail.html'
-#     context_object_name = 'clase'
-
-
-# class SingleLessonCreateView(CreateView):
-#     model = SingleClass
-#     template_name = 'academy/single_lessons/single_lesson_form.html'
-#     fields = '__all__'
-#     success_url = '/clases-particulares/'
-
-
-# class SingleLessonUpdateView(UpdateView):
-#     model = SingleClass
-#     template_name = 'academy/single_lessons/single_lesson_update_form.html'
-#     fields = '__all__'
-#     success_url = '/clases-particulares/'
-
-
-# class SingleLessonDeleteView(DeleteView):
-#     model = SingleClass
-#     template_name = 'academy/single_lessons/single_lesson_confirm_delete.html'
-#     success_url = '/clases-particulares/'
+class SingleLessonDeleteView(DeleteView):
+    model = SingleClass
+    template_name = 'academy/single_lessons/single_lesson_confirm_delete.html'
+    success_url = '/clases-particulares/'
     
 
-# # %% Repertoire
+# %% Repertoire
 
 # class RepertoireListView(LoginRequiredMixin, UserPassesTestMixin, ListView):
 #     model = Repertoire
