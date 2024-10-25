@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Biblioteca{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Biblioteca</h2>
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="{% static 'img/theme.jpg' %}" class="card-img-top" alt="Temas">
+                <div class="card-body">
+                    <h5 class="card-title">Temas</h5>
+                    <p class="card-text">Explora los diversos temas musicales disponibles en nuestra biblioteca.</p>
+                    <a href="{% url 'theme_list' %}" class="btn btn-primary w-100">Ver Temas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="{% static 'img/exercise.jpg' %}" class="card-img-top" alt="Ejercicios">
+                <div class="card-body">
+                    <h5 class="card-title">Ejercicios</h5>
+                    <p class="card-text">Accede a ejercicios musicales para mejorar tus habilidades.</p>
+                    <a href="{% url 'under_construction' %}" class="btn btn-primary w-100">Ver Ejercicios</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                <img src="{% static 'img/book.jpg' %}" class="card-img-top" alt="Libros">
+                <div class="card-body">
+                    <h5 class="card-title">Libros</h5>
+                    <p class="card-text">Consulta nuestra colección de libros musicales.</p>
+                    <a href="{% url 'under_construction' %}" class="btn btn-primary w-100">Ver Libros</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

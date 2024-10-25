@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Partituras{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      {% if sheets %}
+      <div class="card border-light mb-4 ms-4 me-4 mt-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <span><i class="fa-solid fa-list-ul"></i> Partituras</span>
+          <a href="{% url 'under_construction' %}" class="btn btn-success btn-sm" title="Agregar Alumnx">
+            <i class="fa-solid fa-user-plus fa-lg"></i> Agregar
+          </a>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Archivo</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for sheet in sheets %}
+                  <tr>
+                    <td>{{ sheet.id }}</td>
+                    <td>{{ sheet.title }}</td>
+                    <td>{{ sheet.sheet.url }}</td>
+                    <td>
+                      <!-- Botón de Información -->
+                      <button type="button" class="btn btn-info me-1" data-bs-toggle="modal" data-bs-target="#myModal{{sheet.id}}">
+                        <i class="fa-solid fa-circle-info fa-lg"></i>
+                      </button>
+
+                      <!-- Modal | Sheet detail -->
+                      <div class="modal" id="myModal{{score.id}}" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Tema: {{score.title}}</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"></span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <ul class="list-unstyled">
+                                <li class="me-5">Título: <strong>{{sheet.title}}</strong></li>
+                                <li class="me-5">Archivo: <strong>{{sheet.sheet.url}}</strong></li>
+                              </ul>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Botón de Editar -->
+                      <a type="button" class="btn btn-warning me-1" href="{% url 'under_construction' %}">
+                        <i class="fas fa-edit"></i>
+                      </a>
+
+                      <!-- Botón de Eliminar -->
+                      <button type="button" class="btn btn-danger me-1" data-bs-toggle="modal" data-bs-target="#myDeleteModal{{score.id}}">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+
+                      <!-- Modal | Confirmar Eliminación -->
+                      <div class="modal" id="myDeleteModal{{student.id}}" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Eliminar Partitura: {{ sheet.title }}</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <p>¿Estás seguro de que deseas eliminar la partitura {{sheet.name}}?</p>
+                            </div>
+                            <div class="modal-footer">
+                              <form action="{% url 'under_construction'%}" method="get" class="d-inline">
+                                {% csrf_token %}
+                                <input type="hidden" name="sheet_id" value="{{sheet.id}}">
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                              </form>
+                              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </p>
+        </div>
+      </div>
+      {% else %}
+      <div class="alert alert-warning mt-4 mb-4" role="alert">
+        No hay partituras registradas.
+        <a href="{% url 'sheet_create' %}" class="btn btn-success btn-sm float-end" title="Agregar Partitura">
+          <i class="fa-solid fa-user-plus fa-lg"></i> Agregar
+        </a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

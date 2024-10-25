@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static crispy_forms_tags %}
+
+{% block title %}Contacto{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Título, Descripción e Imagen a la izquierda -->
+        <div class="col-md-6 mb-4">
+            <div class="mb-4 text-center">
+                <h2>Contacto</h2>
+                <p>Por favor, proporciona los detalles del asunto por el cual te comunicas con nosotros. Te responderemos lo antes posible.</p>
+            </div>
+            <div class="text-center">
+                <img src="{% static 'img/contact_image.png' %}" class="img-fluid ticket-img" alt="Contact Image">
+            </div>
+        </div>
+        <!-- Formulario a la derecha -->
+        <div class="col-md-6 mb-4 d-flex align-items-center">
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="d-grid gap-2">
+                    {% comment %} <button type="submit" class="btn btn-success">Enviar Formulario</button> {% endcomment %}
+                    <button type="button" id="whatsapp-btn" class="btn btn-info mt-2"><i class="fab fa-whatsapp"></i> Enviar a WhatsApp</button>
+                </div>
+            </form>
+            {% if message %}
+                <div class="alert alert-success mt-4">
+                    {{ message }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const whatsappButton = document.getElementById('whatsapp-btn');
+        whatsappButton.addEventListener('click', function() {
+            const name = document.querySelector('input[name="name"]').value;
+            const email = document.querySelector('input[name="email"]').value;
+            const subject = document.querySelector('select[name="subject"]').value;
+            const message = document.querySelector('textarea[name="message"]').value;
+            const phoneNumber = '5491160470561';
+            const whatsappMessage = `Hola, soy ${name}. Mi correo es ${email}. Asunto: ${subject}. Mensaje: ${message}`;
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappURL, '_blank');
+        });
+    });
+</script>
+{% endblock %}

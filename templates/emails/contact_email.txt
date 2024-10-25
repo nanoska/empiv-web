@@ -1,0 +1,7 @@
+Nombre: {{ name }}
+Email: {{ email }}
+
+Mensaje:
+{{ message }}
+
+Contactar al usuario a través de WhatsApp: {{ whatsapp_url }}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Crear Versión{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Agregar Nueva Versión</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_theme" class="form-label">Tema</label>
+                            {{ form.theme }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_score" class="form-label">Score</label>
+                            {{ form.score }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_sheets" class="form-label">Sheets</label>
+                            {{ form.sheets }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_tone" class="form-label">Tono</label>
+                            {{ form.tone }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_mode" class="form-label">Modo</label>
+                            {{ form.mode }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_scale" class="form-label">Escala</label>
+                            {{ form.scale }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_level" class="form-label">Nivel</label>
+                            {{ form.level }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_genre" class="form-label">Género</label>
+                            {{ form.genre }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_description" class="form-label">Descripción</label>
+                            {{ form.description }}
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Repertorios{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Repertorios</h2>
+    <div class="d-flex justify-content-end mb-3">
+        <a href="{% url 'repertoire_create' %}" class="btn btn-success">Agregar Repertorio</a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Fecha de Creación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for repertoire in repertoires %}
+                <tr>
+                    <td>{{ repertoire.name }}</td>
+                    <td>{{ repertoire.description }}</td>
+                    <td>{{ repertoire.created_at }}</td>
+                    <td>
+                        <a href="{% url 'repertoire_update' repertoire.id %}" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="{% url 'repertoire_delete' repertoire.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

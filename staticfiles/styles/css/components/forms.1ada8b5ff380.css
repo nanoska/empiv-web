@@ -1,0 +1,81 @@
+/* Formularios */
+form {
+    margin: 0 auto; /* Centra el formulario horizontalmente */
+    width: 50%; /* Establece el ancho del formulario al 50% del contenedor padre */
+    border-radius: 5px; /* Bordes redondeados del formulario */
+    padding: 20px 12px 10px 20px; /* Padding interno del formulario */
+    font: 13px "Lora", sans-serif; /* Fuente del formulario */
+    background-color: rgb(232, 232, 232); /* Color de fondo del formulario */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra del formulario */
+    max-width: 300px; /* Ancho máximo del formulario */
+  }
+  
+  form input,
+  form select,
+  form textarea {
+    width: 100%; /* Ancho completo de los campos del formulario */
+    padding: 10px; /* Padding interno de los campos del formulario */
+    margin-bottom: 10px; /* Margen inferior de los campos del formulario */
+    border: none; /* Sin bordes en los campos del formulario */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho y alto */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra de los campos del formulario */
+    border-radius: 5px; /* Bordes redondeados de los campos del formulario */
+  }
+  
+  form button {
+    display: block; /* Hace que el botón sea un bloque */
+    font-size: 16px; /* Tamaño de la fuente del botón */
+    background-color: rgb(139, 0, 0); /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    padding: 15px; /* Padding interno del botón */
+    margin: 8px 0; /* Margen del botón */
+    border: none; /* Sin bordes en el botón */
+    border-radius: 5px; /* Bordes redondeados del botón */
+    cursor: pointer; /* Cambia el cursor al pasar el ratón */
+    width: 100%; /* Ancho completo del botón */
+    transition: background-color 0.3s; /* Transición del color de fondo */
+  }
+  
+  .form-style-1 {
+    margin: 10px auto; /* Centra el formulario horizontalmente */
+    width: 50%; /* Establece el ancho del formulario al 50% del contenedor padre */
+    border-radius: 5px; /* Bordes redondeados del formulario */
+    padding: 20px 12px 10px 20px; /* Padding interno del formulario */
+    font: 13px "Lora", sans-serif; /* Fuente del formulario */
+    background-color: rgb(205, 205, 205); /* Color de fondo del formulario */
+  }
+  
+  .centered-container {
+    display: flex; /* Habilita Flexbox en el contenedor */
+    flex-direction: column; /* Coloca los elementos del contenedor en una columna */
+    justify-content: center; /* Alinea verticalmente al centro */
+    align-items: center; /* Alinea horizontalmente al centro */
+    padding-top: 60px; /* Padding superior del contenedor */
+    padding-bottom: 60px; /* Padding inferior del contenedor */
+  }
+  
+  .form-container {
+    width: 100%; /* Ancho completo del contenedor del formulario */
+    max-width: 400px; /* Ancho máximo del contenedor del formulario */
+  }
+  
+  /* Estilo para los botones dentro de formularios en modales */
+  .modal .btn {
+    margin: 5px; /* Margen de los botones en los modales */
+  }
+  
+  .modal .btn-danger {
+    background-color: #dc3545; /* Color de fondo del botón de peligro */
+    border-color: #dc3545; /* Color del borde del botón de peligro */
+  }
+  
+  .modal .btn-primary {
+    background-color: #007bff; /* Color de fondo del botón principal */
+    border-color: #007bff; /* Color del borde del botón principal */
+  }
+  
+  .modal-footer {
+    display: flex; /* Habilita Flexbox en el pie de página del modal */
+    justify-content: flex-end; /* Alinea los botones al final */
+  }
+  

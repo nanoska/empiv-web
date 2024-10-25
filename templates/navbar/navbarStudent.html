@@ -1,0 +1,31 @@
+<!-- navbar/navbarStudent.html -->
+<ul class="navbar-nav me-auto">
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Inicio</a>
+    <div class="dropdown-menu">
+      <a class="nav-link {% if "talleres" in request.path %}active{% endif %}" href="{% url 'workshop_list' %}">Talleres Grupales</a>
+      <a class="nav-link {% if "clases-particulares" in request.path %}active{% endif %}" href="{% url 'workshop_list' %}">Talleres Grupales</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if "talleres/s" in request.path %}active{% endif %}" href="{% url 'my_workshop_list' %}">Mis talleres</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">STUDENT Dropdown</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if "teoria" in request.path %}active{% endif %}" href="{% url 'under_construction' %}">
+      <i class="fa-solid fa-person-chalkboard"></i> Aprendizaje Musical
+    </a>
+  </li>
+</ul>

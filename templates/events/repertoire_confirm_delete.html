@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Eliminar Repertorio{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Eliminar Repertorio</h2>
+    <p class="text-center">¿Estás seguro de que deseas eliminar el repertorio "{{ object.name }}"?</p>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body text-center">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                            <a href="{% url 'repertoire_list' %}" class="btn btn-secondary mt-2">Cancelar</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

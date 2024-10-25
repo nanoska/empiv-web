@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ taller.image.url }}" alt="{{ taller.name }}" style="width: 50%;">
+            
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <h2>{{ taller.name }}</h2>
+                <p class="mb-3">{{ taller.name }}</p>
+                <span class="section-heading-upper">{{ taller.description }}</span>
+                <p class="mb-3">{{ taller.name }}</p>  
+                
+                <div style="text-align: left; font-size: 0.8em;">
+                    Día: {{ taller.description }}<br>
+                    Hora: {{ taller.description }}<br>
+                </div>
+
+                <a href="{{ taller.image.url }}" class="btn btn-primary">Contactar</a>
+                <a href="{{ taller.image.url }}" class="btn btn-primary">Inscribirse</a> 
+            </div>
+        </div>
+    </div>
+
+    {% comment %} <div class="card-body">
+
+        <p style="color: white;">{{ taller.descripcion }}</p>                
+        
+    </div> {% endcomment %}
+
+</section>
+
+{% endblock %}

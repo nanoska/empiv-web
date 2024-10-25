@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Clases Particulares{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Clases Particulares</h2>
+    <p class="text-center mb-4">Explora nuestras ofertas de clases particulares para diferentes instrumentos musicales.</p>
+    
+    <div class="row">
+        <!-- Tarjeta 1 -->
+        <div class="col-md-4 mb-4">
+            <div class="card event-card-home">
+                <img src="{% static 'img/trompeta.jpg' %}" class="card-img-top" alt="Clase de Guitarra">
+                <div class="card-body">
+                    <h5 class="card-title">Clases de Trompeta</h5>
+                    <p class="card-text">Aprende a tocar la guitarra con nuestros profesores expertos.</p>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#guitarLesson" aria-expanded="false" aria-controls="guitarLesson">
+                        Más Información
+                    </button>
+                    <div class="collapse mt-3" id="guitarLesson">
+                        <div class="card card-body">
+                            <p>Horario: Lunes y Miércoles, 18:00 - 20:00</p>
+                            <p>Precio: $50 por clase</p>
+                            <p>Profesor: Juan Pérez</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tarjeta 2 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{% static 'img/saxo.jpg' %}" class="card-img-top" alt="Clase de Piano">
+                <div class="card-body">
+                    <h5 class="card-title">Clases de Saxo</h5>
+                    <p class="card-text">Mejora tus habilidades pianísticas con nuestros cursos personalizados.</p>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#pianoLesson" aria-expanded="false" aria-controls="pianoLesson">
+                        Más Información
+                    </button>
+                    <div class="collapse mt-3" id="pianoLesson">
+                        <div class="card card-body">
+                            <p>Horario: Martes y Jueves, 16:00 - 18:00</p>
+                            <p>Precio: $60 por clase</p>
+                            <p>Profesor: María López</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img src="{% static 'img/clarinete.jpg' %}" class="card-img-top" alt="Clase de Violín">
+                <div class="card-body">
+                    <h5 class="card-title">Clases de Clarinete</h5>
+                    <p class="card-text">Descubre el arte del clarinete con nuestras clases especializadas.</p>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#violinLesson" aria-expanded="false" aria-controls="violinLesson">
+                        Más Información
+                    </button>
+                    <div class="collapse mt-3" id="violinLesson">
+                        <div class="card card-body">
+                            <p>Horario: Viernes, 17:00 - 19:00</p>
+                            <p>Precio: $55 por clase</p>
+                            <p>Profesor: Ana Gómez</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

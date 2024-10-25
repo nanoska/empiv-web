@@ -1,0 +1,45 @@
+/* Ajustes del Carrusel */
+.custom-carousel-height .carousel-item img {
+  height: 200px; /* Ajusta la altura del banner */
+  object-fit: cover; /* Escala la imagen para llenar el contenedor */
+}
+
+.carousel-indicators li {
+  background-color: #000; /* Color de fondo de los indicadores */
+  width: 12px; /* Ancho de los indicadores */
+  height: 12px; /* Altura de los indicadores */
+}
+
+.carousel-indicators li.active {
+  background-color: #fff; /* Color de fondo del indicador activo */
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  white-space: nowrap; /* Asegura que el texto no se divida en varias líneas */
+}
+
+.carousel-caption h1 {
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Contorno del título */
+}
+
+.carousel-caption p {
+  font-size: 1rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Contorno del párrafo */
+}
+
+.carousel-inner {
+  width: 100%;
+  max-height: 500px; /* Ajusta la altura máxima según tus necesidades */
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto; /* Ajuste proporcional de la altura */
+  object-fit: contain; /* Ajuste de la imagen dentro del contenedor sin recortarla */
+}

@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Alumnxs{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      {% if students %}
+      <div class="card border-light mb-4 ms-4 me-4 mt-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <span><i class="fa-solid fa-list-ul"></i> Alumnxs</span>
+          <a href="{% url 'student_add' %}" class="btn btn-success btn-sm" title="Agregar Alumnx">
+            <i class="fa-solid fa-user-plus fa-lg"></i> Agregar
+          </a>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            <div class="table-responsive">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Instrumento</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for student in students %}
+                  <tr>
+                    <td>{{ student.user.id }}</td>
+                    <td>{{ student.user.first_name }}</td>
+                    <td>{{ student.user.last_name }}</td>
+                    <td>{{ student.primary_instrument.name }}</td>
+                    <td>
+                      <!-- Botón de Información -->
+                      <button type="button" class="btn btn-info me-1" data-bs-toggle="modal" data-bs-target="#myModal{{student.id}}">
+                        <i class="fa-solid fa-circle-info fa-lg"></i>
+                      </button>
+
+                      <!-- Modal | Student detail -->
+                      <div class="modal" id="myModal{{student.id}}" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Alumnx: {{student.user.first_name}}</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true"></span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <ul class="list-unstyled">
+                                <li class="me-5">Nombre: <strong>{{student.user.first_name}}</strong></li>
+                                <li class="me-5">Apellido: <strong>{{student.user.last_name}}</strong></li>
+                                <li class="me-5">Email: <strong>{{student.user.email}}</strong></li>
+                                <li class="me-5">Instrumento: <strong>{{student.primary_instrument.name}}</strong></li>
+                              </ul>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Botón de Editar -->
+                      <a type="button" class="btn btn-warning me-1" href="{% url 'student_update' student.id %}">
+                        <i class="fas fa-edit"></i>
+                      </a>
+
+                      <!-- Botón de Eliminar -->
+                      <button type="button" class="btn btn-danger me-1" data-bs-toggle="modal" data-bs-target="#myDeleteModal{{student.id}}">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+
+                      <!-- Modal | Confirmar Eliminación -->
+                      <div class="modal" id="myDeleteModal{{student.id}}" tabindex="-1" aria-labelledby="myModalLabel2" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Eliminar Alumnx: {{student.user.first_name}}</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              <p>¿Estás seguro de que deseas eliminar a {{student.user.first_name}}?</p>
+                            </div>
+                            <div class="modal-footer">
+                              <form action="{% url 'student_delete' student.id %}" method="post" class="d-inline">
+                                {% csrf_token %}
+                                <input type="hidden" name="student_id" value="{{student.id}}">
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                              </form>
+                              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </p>
+        </div>
+      </div>
+      {% else %}
+      <div class="alert alert-warning mt-4 mb-4" role="alert">
+        No hay alumnxs registradxs.
+        <a href="{% url 'student_add' %}" class="btn btn-success btn-sm float-end" title="Agregar Alumnx">
+          <i class="fa-solid fa-user-plus fa-lg"></i> Agregar
+        </a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

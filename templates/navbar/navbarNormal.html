@@ -1,0 +1,35 @@
+<!-- templates/navbar/navbarNormal.html -->
+{% load static %}
+
+<ul class="navbar-nav me-auto">
+  <li class="nav-item">
+    <a class="nav-link {% if "home" in request.path %}active{% endif %}" href="{% url 'home' %}">
+      <i class="fas fa-home"></i> Inicio
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if "nosotros" in request.path %}active{% endif %}" href="{% url 'about_us' %}">
+      <i class="fa-solid fa-face-grin-beam"></i> Sobre Nosotros
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if "evento" in request.path %}active{% endif %}" href="{% url 'events' %}">
+      <i class="fas fa-calendar-alt"></i> Eventos
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if "talleres" in request.path %}active{% endif %}" href="{% url 'workshop_list' %}">
+      <i class="fa-solid fa-users"></i> Talleres Grupales
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if "particulares" in request.path %}active{% endif %}" href="{% url 'single_lesson_list' %}">
+      <i class="fa-solid fa-person-chalkboard"></i> Clases Particulares
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if "contacto" in request.path %}active{% endif %}" href="{% url 'contact' %}">
+      <i class="fas fa-envelope"></i> Contacto
+    </a>
+  </li>
+</ul>

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}404 - Página no encontrada{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h1 class="display-4">404 - Página no encontrada</h1>
+    <p class="lead">Lo sentimos, la página que estás buscando no se pudo encontrar.</p>
+    <i class="fas fa-exclamation-triangle fa-5x text-warning"></i>
+    <p>Es posible que la página haya sido movida, eliminada, o que nunca haya existido.</p>
+    <a href="{% url 'home' %}" class="btn btn-primary btn-lg mt-3">Volver a Inicio</a>
+</div>
+{% endblock %}

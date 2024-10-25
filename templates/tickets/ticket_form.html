@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Crear Ticket{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Título, Descripción e Imagen a la izquierda -->
+        <div class="col-md-6">
+            <div class="mb-4 text-center">
+                <h2>Crear Ticket</h2>
+                <p>Por favor, proporciona los detalles del problema o solicitud que estás experimentando. Nos pondremos en contacto contigo lo antes posible para resolverlo.</p>
+            </div>
+            <div class="text-center">
+                <img src="{% static 'img/ticket_image.png' %}" class="img-fluid ticket-img" alt="Ticket Image">
+            </div>
+        </div>
+        <!-- Formulario a la derecha -->
+        <div class="col-md-6">
+            <form method="POST" action="">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-success">Enviar Ticket</button>
+                    <a href="{% url 'ticket_list' %}" class="btn btn-secondary mt-2">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Crear Sheet{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Agregar Nuevo Sheet</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_score" class="form-label">Score</label>
+                            {{ form.score }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_instrument" class="form-label">Instrumento</label>
+                            {{ form.instrument }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_line" class="form-label">Línea</label>
+                            {{ form.line }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_level" class="form-label">Nivel</label>
+                            {{ form.level }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_pdf" class="form-label">PDF</label>
+                            {{ form.pdf }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_audio" class="form-label">Audio</label>
+                            {{ form.audio }}
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Detalle de la Clase{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">{{ clase.title }}</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="mb-3">
+                <h4>Descripción</h4>
+                <p>{{ clase.long_description }}</p>
+            </div>
+            <div class="mb-3">
+                <h4>Precio</h4>
+                <p>${{ clase.price }}</p>
+            </div>
+            <div class="mb-3">
+                <h4>Duración</h4>
+                <p>{{ clase.duration }}</p>
+            </div>
+            <div class="mb-3">
+                <h4>Modalidad</h4>
+                <p>{{ clase.get_modality_display }}</p>
+            </div>
+            <div class="mb-3">
+                <h4>Profesor</h4>
+                <p>{{ clase.teacher.user.username }}</p>
+            </div>
+            <a href="{% url 'single_lessons_list' %}" class="btn btn-secondary w-100 mt-2">Volver a la lista</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

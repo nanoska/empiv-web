@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Crear Score{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Agregar Nuevo Score</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_theme" class="form-label">Tema</label>
+                            {{ form.theme }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_arranger" class="form-label">Arreglista</label>
+                            {{ form.arranger }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_concert_pitch" class="form-label">Afinación de Concierto</label>
+                            {{ form.concert_pitch }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_mode" class="form-label">Modo</label>
+                            {{ form.mode }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_pdf" class="form-label">PDF</label>
+                            {{ form.pdf }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_audio" class="form-label">Audio</label>
+                            {{ form.audio }}
+                        </div>
+                        <button type="submit" class="btn btn-success w-100">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

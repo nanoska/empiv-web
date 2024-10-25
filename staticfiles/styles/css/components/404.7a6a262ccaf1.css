@@ -1,0 +1,70 @@
+/* Estilos generales para la página de error 404 */
+.error-page {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente el contenido */
+    align-items: center; /* Centra verticalmente el contenido */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    background-color: #f8f9fa; /* Color de fondo claro */
+    color: #333; /* Color del texto */
+    text-align: center; /* Alinea el texto al centro */
+  }
+  
+  .dark-mode .error-page {
+    background-color: #212529; /* Color de fondo oscuro para el modo oscuro */
+    color: #dee2e6; /* Color del texto claro para el modo oscuro */
+  }
+  
+  /* Contenedor del contenido */
+  .error-content {
+    max-width: 600px; /* Ancho máximo del contenedor */
+    padding: 20px; /* Padding interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  }
+  
+  .dark-mode .error-content {
+    background-color: #333; /* Fondo oscuro para el contenedor en modo oscuro */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra suave en modo oscuro */
+  }
+  
+  /* Estilo del título */
+  .error-title {
+    font-size: 4rem; /* Tamaño de fuente grande */
+    margin-bottom: 20px; /* Margen inferior */
+    color: #dc3545; /* Color rojo */
+  }
+  
+  .dark-mode .error-title {
+    color: #ff6b6b; /* Color rojo claro para el modo oscuro */
+  }
+  
+  /* Estilo del mensaje */
+  .error-message {
+    font-size: 1.5rem; /* Tamaño de fuente mediano */
+    margin-bottom: 20px; /* Margen inferior */
+  }
+  
+  /* Estilo del enlace */
+  .error-link {
+    display: inline-block; /* Muestra el enlace como un bloque en línea */
+    padding: 10px 20px; /* Padding interno */
+    font-size: 1.2rem; /* Tamaño de fuente */
+    color: #fff; /* Color del texto */
+    background-color: #007bff; /* Color de fondo azul */
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none; /* Elimina la subrayado */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+  }
+  
+  .error-link:hover {
+    background-color: #0056b3; /* Color de fondo más oscuro al pasar el ratón */
+  }
+  
+  .dark-mode .error-link {
+    background-color: #375a7f; /* Fondo azul oscuro para el modo oscuro */
+  }
+  
+  .dark-mode .error-link:hover {
+    background-color: #2b3e50; /* Fondo más oscuro al pasar el ratón en modo oscuro */
+  }
+  

@@ -1,0 +1,121 @@
+<!-- templates/payments/payments_list.html -->
+{% extends "base.html" %}
+
+{% block title %}Dashboard Financiero{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Dashboard Financiero</h2>
+    
+    <div class="accordion" id="financialDashboardAccordion">
+
+        <!-- Mi Billetera -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingWallet">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWallet" aria-expanded="true" aria-controls="collapseWallet">
+                    Mi Billetera
+                </button>
+            </h2>
+            <div id="collapseWallet" class="accordion-collapse collapse show" aria-labelledby="headingWallet" data-bs-parent="#financialDashboardAccordion">
+                <div class="accordion-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Cantidad</th>
+                                <th>Tipo de Transacción</th>
+                                <th>Fecha</th>
+                                <th>Detalles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for transaction in wallet_transactions %}
+                            <tr class="{% if transaction.inout %}text-success{% else %}text-danger{% endif %}">
+                                <td>{{ transaction.amount }}</td>
+                                <td>{{ transaction.get_transaction_type_display }}</td>
+                                <td>{{ transaction.date }}</td>
+                                <td>{{ transaction.details }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Suscripciones -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingSubscriptions">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSubscriptions" aria-expanded="false" aria-controls="collapseSubscriptions">
+                    Suscripciones
+                </button>
+            </h2>
+            <div id="collapseSubscriptions" class="accordion-collapse collapse" aria-labelledby="headingSubscriptions" data-bs-parent="#financialDashboardAccordion">
+                <div class="accordion-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Tipo de Suscripción</th>
+                                <th>Fecha de Inicio</th>
+                                <th>Fecha de Fin</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for subscription in subscriptions %}
+                            <tr class="{% if subscription.active %}text-success{% else %}text-danger{% endif %}">
+                                <td>{{ subscription.get_subscription_type_display }}</td>
+                                <td>{{ subscription.start_date }}</td>
+                                <td>{{ subscription.end_date }}</td>
+                                <td>{% if subscription.active %}Activa{% else %}Vencida{% endif %}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Balance EMPIV -->
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="headingBalance">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBalance" aria-expanded="false" aria-controls="collapseBalance">
+                    Balance EMPIV
+                </button>
+            </h2>
+            <div id="collapseBalance" class="accordion-collapse collapse" aria-labelledby="headingBalance" data-bs-parent="#financialDashboardAccordion">
+                <div class="accordion-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Cantidad</th>
+                                <th>Tipo</th>
+                                <th>Fecha</th>
+                                <th>Detalles</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for payment in payments %}
+                            <tr class="text-success">
+                                <td>{{ payment.amount }}</td>
+                                <td>Ingreso</td>
+                                <td>{{ payment.date }}</td>
+                                <td>{{ payment.details }}</td>
+                            </tr>
+                            {% endfor %}
+                            {% for expense in expenses %}
+                            <tr class="text-danger">
+                                <td>{{ expense.amount }}</td>
+                                <td>Gasto</td>
+                                <td>{{ expense.date }}</td>
+                                <td>{{ expense.description }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

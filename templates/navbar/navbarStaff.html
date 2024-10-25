@@ -1,0 +1,155 @@
+<!-- templates/navbar/navbarStaff.html -->
+<ul class="navbar-nav me-auto">
+  <!-- Alumnos -->
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle {% if "student" in request.path %}active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      <i class="fa-solid fa-graduation-cap fa-lg"></i> Alumnos
+    </a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item {% if "student/list" in request.path %}active{% endif %}" href="{% url 'student_list' %}">
+        <i class="fa-solid fa-eye fa-lg"></i> Ver alumnos
+      </a>
+      <a class="dropdown-item {% if "student/add" in request.path %}active{% endif %}" href="{% url 'student_add' %}">
+        <i class="fa-solid fa-user-plus fa-lg"></i> Agregar alumno
+      </a>
+      {% if user.is_teacher %}
+      <a class="dropdown-item {% if "profes/mis-alumnxs" in request.path %}active{% endif %}" href="{% url 'under_construction' %}">
+        <i class="fa-solid fa-users fa-lg"></i> Mis alumnos
+      </a>
+      {% endif %}
+    </div>
+  </li>
+  
+  <!-- Profesores -->
+  <li class="nav-item">
+    <a class="nav-link {% if "teachers" in request.path %}active{% endif %}" href="{% url 'under_construction' %}">
+      <i class="fa-solid fa-chalkboard-teacher fa-lg"></i> Profesores
+    </a>
+  </li>
+  
+  <!-- Talleres -->
+  <li class="nav-item">
+    <a class="nav-link {% if "talleres" in request.path %}active{% endif %}" href="{% url 'workshop_list' %}">
+      <i class="fa-solid fa-paint-brush fa-lg"></i> Talleres
+    </a>
+  </li>
+  
+  <!-- Biblioteca -->
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle {% if "library" in request.path %}active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      <i class="fa-solid fa-book fa-lg"></i> Biblioteca
+    </a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item {% if "partituras" in request.path %}active{% endif %}" href="{% url 'score_list' %}">
+        <i class="fa-solid fa-music fa-lg"></i> Partituras
+      </a>
+      <a class="dropdown-item {% if "libros" in request.path %}active{% endif %}" href="{% url 'book_list' %}">
+        <i class="fa-solid fa-book-open fa-lg"></i> Libros
+      </a>
+      <a class="dropdown-item {% if "ejercicios" in request.path %}active{% endif %}" href="{% url 'exercise_list' %}">
+        <i class="fa-solid fa-dumbbell fa-lg"></i> Ejercicios
+      </a>
+      <a class="dropdown-item {% if "teoria" in request.path %}active{% endif %}" href="{% url 'lesson_list' %}">
+        <i class="fa-solid fa-file-alt fa-lg"></i> Teoria Musical
+      </a>
+    </div>
+  </li>
+  
+  <!-- Tareas -->
+  <li class="nav-item">
+    <a class="nav-link {% if "tasks" in request.path %}active{% endif %}" href="{% url 'under_construction' %}">
+      <i class="fa-solid fa-tasks fa-lg"></i> Tareas
+    </a>
+  </li>
+  
+  <!-- Eventos -->
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle {% if "event" in request.path %}active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      <i class="fa-solid fa-calendar-days"></i> Eventos
+    </a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item {% if "eventos/list" in request.path %}active{% endif %}" href="{% url 'events' %}">
+        <i class="fa-regular fa-calendar-check"></i> Ver eventos
+      </a>
+      <a class="dropdown-item {% if "evento/create" in request.path %}active{% endif %}" href="{% url 'event_create' %}">
+        <i class="fa-solid fa-calendar-plus"></i> Crear evento
+      </a>
+      <a class="dropdown-item {% if "locacion/create" in request.path %}active{% endif %}" href="{% url 'location_create' %}">
+        <i class="fa-solid fa-plus"></i> Agregar locación
+      </a>
+      <a class="dropdown-item {% if "repertorio/create" in request.path %}active{% endif %}" href="{% url 'repertoire_create' %}">
+        <i class="fa-solid fa-plus"></i> Agregar repertorio
+      </a>
+    </div>
+  </li>  
+
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="adminDataDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <i class="fa-solid fa-database fa-lg"></i> Administración de Datos
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="adminDataDropdown">
+      <!-- Dropdown for Themes -->
+      <li class="dropdown-submenu">
+        <a class="dropdown-item dropdown-toggle" href="#" id="themesDropdown" role="button">Temas</a>
+        <ul class="dropdown-menu" aria-labelledby="themesDropdown">
+          <li><a class="dropdown-item" href="{% url 'theme_list' %}">Ver Temas</a></li>
+          <li><a class="dropdown-item" href="{% url 'theme_create' %}">Agregar Tema</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown for Versions -->
+      <li class="dropdown-submenu">
+        <a class="dropdown-item dropdown-toggle" href="#" id="versionsDropdown" role="button">Versiones</a>
+        <ul class="dropdown-menu" aria-labelledby="versionsDropdown">
+          <li><a class="dropdown-item" href="{% url 'version_list' %}">Ver Versiones</a></li>
+          <li><a class="dropdown-item" href="{% url 'version_create' %}">Agregar Versión</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown for Scores -->
+      <li class="dropdown-submenu">
+        <a class="dropdown-item dropdown-toggle" href="#" id="scoresDropdown" role="button">Partituras</a>
+        <ul class="dropdown-menu" aria-labelledby="scoresDropdown">
+          <li><a class="dropdown-item" href="{% url 'score_list' %}">Ver Partituras</a></li>
+          <li><a class="dropdown-item" href="{% url 'score_create' %}">Agregar Partitura</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown for Sheets -->
+      <li class="dropdown-submenu">
+        <a class="dropdown-item dropdown-toggle" href="#" id="sheetsDropdown" role="button">Hojas</a>
+        <ul class="dropdown-menu" aria-labelledby="sheetsDropdown">
+          <li><a class="dropdown-item" href="{% url 'sheet_list' %}">Ver Hojas</a></li>
+          <li><a class="dropdown-item" href="{% url 'sheet_create' %}">Agregar Hoja</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown for Lessons -->
+      <li class="dropdown-submenu">
+        <a class="dropdown-item dropdown-toggle" href="#" id="lessonsDropdown" role="button">Lecciones</a>
+        <ul class="dropdown-menu" aria-labelledby="lessonsDropdown">
+          <li><a class="dropdown-item" href="{% url 'lesson_list' %}">Ver Lecciones</a></li>
+          <li><a class="dropdown-item" href="{% url 'lesson_create' %}">Agregar Lección</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown for Exercises -->
+      <li class="dropdown-submenu">
+        <a class="dropdown-item dropdown-toggle" href="#" id="exercisesDropdown" role="button">Ejercicios</a>
+        <ul class="dropdown-menu" aria-labelledby="exercisesDropdown">
+          <li><a class="dropdown-item" href="{% url 'exercise_list' %}">Ver Ejercicios</a></li>
+          <li><a class="dropdown-item" href="{% url 'exercise_create' %}">Agregar Ejercicio</a></li>
+        </ul>
+      </li>
+
+      <!-- Dropdown for Books -->
+      <li class="dropdown-submenu">
+        <a class="dropdown-item dropdown-toggle" href="#" id="booksDropdown" role="button">Libros</a>
+        <ul class="dropdown-menu" aria-labelledby="booksDropdown">
+          <li><a class="dropdown-item" href="{% url 'book_list' %}">Ver Libros</a></li>
+          <li><a class="dropdown-item" href="{% url 'book_create' %}">Agregar Libro</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>

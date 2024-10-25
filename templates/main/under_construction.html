@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Página en Construcción{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-center">
+    <h1 class="display-4">¡Estamos Trabajando en Ello!</h1>
+    <p class="lead">Esta página está en construcción y estará disponible pronto.</p>
+    <i class="fas fa-tools fa-5x text-warning"></i>
+    <p>Mientras tanto, puedes volver a la página de inicio o explorar otras secciones de nuestro sitio.</p>
+    <a href="{% url 'home' %}" class="btn btn-primary btn-lg mt-3">Volver a Inicio</a>
+</div>
+{% endblock %}

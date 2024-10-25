@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Clases Particulares{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Clases Particulares</h2>
+    <div class="row justify-content-center">
+        {% if clases %}
+        <div class="col-md-10">
+            {% for clase in clases %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ clase.title }}</h5>
+                    <p class="card-text">{{ clase.short_description }}</p>
+                    <a href="{% url 'single_lesson_detail' clase.id %}" class="btn btn-primary">Ver detalles</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="alert alert-warning mt-4 mb-4" role="alert">
+            No hay clases registradas.
+            {% if user.is_staff %}
+            <a href="{% url 'single_lesson_create' %}" class="btn btn-success btn-sm float-end" title="Agregar Clase Particular">
+              <i class="fa-solid fa-plus fa-lg"></i> Agregar
+            </a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

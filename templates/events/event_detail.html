@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Detalle del Evento{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row align-items-center">
+        <div class="col-md-6 mb-4 d-flex justify-content-center">
+          {% if object.image %}
+            <img src="{{ object.image.url }}" class="img-fluid" alt="{{ object.name }}">
+          {% else %}
+            <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+              <rect width="100%" height="100%" fill="#868e96"></rect>
+              <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+            </svg>
+          {% endif %}
+        </div>
+      
+        <div class="col-md-6 d-flex flex-column justify-content-between text-center mb-4 h-100" style="height: 100%;">
+          <h3>{{ object.name }}</h3>
+          <p>{{ object.description }}</p>
+          <p><strong>Fecha:</strong> {{ object.date }}</p>
+          <p><strong>Hora:</strong> {{ object.time }}</p>
+          <p><strong>Ubicación:</strong> <a href="{% url 'location_detail' object.location.id %}">{{ object.location.name }}</a></p>
+        </div>
+      </div>
+      
+      
+    <div class="row align-items-center">
+        {% if object.date >= today %}
+        <div class="col-md-6 mb-4">
+            <h3 id="reserva" class="text-center mb-4">Reservá tu lugar</h3>
+            <form method="post" action="{% url 'event_reservation' object.id %}">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="btn btn-primary w-100">Reservar</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h3 class="text-center mb-4">Detalles de la Ubicación</h3>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <p><strong>Dirección:</strong> {{ object.location.address }}</p>
+                    <p><strong>Ciudad:</strong> {{ object.location.city }}</p>
+                    <p><strong>Estado:</strong> {{ object.location.state }}</p>
+                    <p><strong>Teléfono:</strong> {{ object.location.phone }}</p>
+                    <p><strong>Email:</strong> {{ object.location.email }}</p>
+                    <p><strong>Sitio Web:</strong> <a href="{{ object.location.website }}" target="_blank">{{ object.location.website }}</a></p>
+                </div>
+                <div class="col-md-6 mb-4">
+                    {% if object.location.iframe %}
+                    <div class="mt-4">
+                        {{ object.location.iframe|safe }}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <a href="{% url 'under_construction' %}" class="btn btn-success">Ir a la galería</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+/* Estilos generales para todas las tarjetas */
+.card {
+    text-align: center; /* Centra el texto dentro de las tarjetas */
+    border-radius: 10px; /* Bordes redondeados de las tarjetas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor de las tarjetas */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves para hover */
+  }
+  
+  .card-img-top {
+    height: 200px; /* Ajusta la altura de la imagen superior de la tarjeta */
+    object-fit: cover; /* Escala la imagen para llenar el contenedor */
+    border-top-left-radius: 10px; /* Redondea la esquina superior izquierda */
+    border-top-right-radius: 10px; /* Redondea la esquina superior derecha */
+  }
+  
+  .card-title {
+    color: #2c3e50; /* Color del título de la tarjeta */
+    font-weight: bold; /* Hace que el título sea negrita */
+    margin-top: 15px; /* Margen superior del título */
+  }
+  
+  .card-body {
+    padding: 20px; /* Padding interno del cuerpo de la tarjeta */
+  }
+  
+  .card-text {
+    color: #6c757d; /* Color del texto de la tarjeta */
+    margin-bottom: 15px; /* Margen inferior del texto */
+  }
+  
+/* Estilos específicos para tarjetas de Clases Particulares */
+.particular-card .card-title {
+  color: #2c3e50; /* Color del título específico */
+}
+
+.particular-card .card-body {
+  text-align: center; /* Centra el texto en el cuerpo de la tarjeta */
+}
+
+/* Estilos específicos para tarjetas de Talleres Grupales */
+.workshop-card .card-title {
+  color: #2c3e50; /* Color del título específico */
+}
+
+.workshop-card .card-body {
+  text-align: center; /* Centra el texto en el cuerpo de la tarjeta */
+}
+
+/* Estilos específicos para tarjetas de Eventos */
+.event-card .card-body {
+  text-align: center; /* Centra el texto en el cuerpo de la tarjeta */
+}
+
+
+/* Estilos para tarjetas de Miembros del Equipo */
+.team-card .card-title {
+  color: #2c3e50; /* Color del título específico */
+}
+
+.team-card .card-body {
+  text-align: center; /* Centra el texto en el cuerpo de la tarjeta */
+}
+  

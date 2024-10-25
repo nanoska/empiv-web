@@ -1,0 +1,67 @@
+/* Estilos específicos para las tarjetas de eventos */
+.card-event {
+    cursor: pointer; /* Hace que toda la tarjeta sea clickeable */
+    display: block; /* Hace que la tarjeta ocupe todo el ancho disponible */
+    text-decoration: none; /* Remueve cualquier subrayado de texto */
+    text-align: center; /* Centra el texto dentro de la tarjeta */
+    color: inherit; /* Mantiene el color de los textos al ser clickeado */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para hover */
+    border-radius: 10px; /* Bordes redondeados */
+    border-width: 2px; /* Ancho del borde */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor de las tarjetas */
+    position: relative; /* Posición relativa para el enlace */
+  }
+  
+  /* Hover para agrandar la tarjeta y aumentar la sombra */
+  .card-event:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño al pasar el ratón */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el ratón */
+  }
+  
+  /* Estilo del título dentro de la tarjeta */
+  .card-event .card-title {
+    font-weight: bold; /* Hace que el título sea negrita */
+    margin-top: 15px; /* Margen superior del título */
+    color: #2c3e50; /* Color del título */
+  }
+  
+  .card-event:hover .cart-title {
+    color: #f1b834; /* Cambia el color del título al pasar el ratón */
+  }
+
+  /* Imagen de tamaño uniforme */
+  .card-event .card-img {
+    height: 200px; /* Mantiene el tamaño uniforme de la imagen */
+    object-fit: cover; /* Escala la imagen para llenar el contenedor */
+    border-top-left-radius: 10px; /* Redondea la esquina superior izquierda */
+    border-top-right-radius: 10px; /* Redondea la esquina superior derecha */
+  }
+  
+  /* Estilo del cuerpo de la tarjeta */
+  .card-event .card-body {
+    padding: 20px; /* Padding interno del cuerpo de la tarjeta */
+  }
+  
+  /* Estilo del texto dentro de la tarjeta */
+  .card-event .card-text {
+    color: #6c757d; /* Color del texto de la tarjeta */
+    margin-bottom: 15px; /* Margen inferior del texto */
+  }
+  
+  /* Estilo de los enlaces dentro de las tarjetas de eventos */
+  .card-event a {
+    color: #f1b834; /* Color específico para enlaces en las tarjetas de eventos */
+    text-decoration: none; /* Quita subrayado a enlaces en las tarjetas de eventos */
+  }
+  
+
+  /* La clase stretched-link hace clickeable toda la tarjeta */
+.card-event .stretched-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  text-decoration: none; /* Elimina el subrayado del enlace */
+}

@@ -1,0 +1,8 @@
+/* home.css */
+
+
+
+.a-card { /* Enlaces en el home */
+    color: #000000; /* Color específico para enlaces en el home */
+    text-decoration: none; /* Quita subrayado a enlaces en el home */
+}

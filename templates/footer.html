@@ -1,0 +1,49 @@
+{% load static %}
+
+<!-- templates/footer.html -->
+<footer class="bg-dark text-center text-lg-start text-white mt-auto">
+  <div class="container p-4">
+    <div class="row">
+      <!-- Redes Sociales -->
+      <div class="col-lg-4 col-md-4 mb-4 mb-md-0 text-center">
+        <h5>Seguinos en las redes</h5>
+        <a href="https://chat.whatsapp.com/CkTRrsx3i993qfAHn52lpt" class="text-white me-2" target="_blank"><i class="fab fa-whatsapp fa-lg"></i></a>
+        <a href="https://www.youtube.com/@PROYECTOEMPIV" class="text-white me-2" target="_blank"><i class="fab fa-youtube fa-lg"></i></a>
+        <a href="https://www.instagram.com/proyectoempiv/" class="text-white me-2" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="https://www.tiktok.com/@proyectoempiv" class="text-white me-2" target="_blank"><i class="fab fa-tiktok fa-lg"></i></a>
+        <a href="https://linktr.ee/proyectoempiv" class="text-white me-2" target="_blank"><i class="fa-solid fa-tree"></i></a>
+      </div>    
+
+      <!-- Logo de la Escuela -->
+      <div class="col-lg-4 col-md-4 mb-4 mb-md-0 text-center">
+        <img src="{% static 'img/logo.png' %}" alt="Logo EMPIV" class="img-fluid mb-2" style="max-width: 100px;">
+      </div>
+
+      <!-- Enlaces Útiles -->
+      <div class="col-lg-4 col-md-4 mb-4 mb-md-0 text-center">
+        <h5>Enlaces útiles</h5>
+        <ul class="list-unstyled mb-0">
+          <li><a href="{% url 'home' %}" class="text-white">Inicio</a></li>
+          <li><a href="{% url 'contact' %}" class="text-white">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    Derechos de autor © 2024:
+    <a class="text-white" href="https://empiv.com/">Satori</a>
+    | v1.0.0
+    {% if user.is_authenticated %}
+      {% if user.is_staff %}
+        <a href="{% url 'ticket_list' %}" class="text-white float-end">
+          <i class="fas fa-bug"></i>
+        </a>
+      {% else %}
+        <a href="{% url 'ticket_create' %}" class="text-white float-end">
+          <i class="fas fa-bug"></i>
+        </a>
+      {% endif %}
+    {% endif %}
+  </div>
+</footer>

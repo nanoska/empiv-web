@@ -1,0 +1,15 @@
+/* Importa todos los archivos CSS modulares */
+
+/* Componentes */
+@import url("components/footer.b730e62ecf0e.css");
+@import url("components/carousel.9cf460d58fdb.css");
+@import url("components/cards.21627fd48290.css");
+@import url("components/forms.1ada8b5ff380.css");
+@import url("components/video.5f073464cf62.css");
+@import url("components/404.7a6a262ccaf1.css");
+
+/* Secciones */
+@import url("sections/home.edfcd3ee2f0a.css");
+
+/* Modo oscuro */
+@import url("dark-mode.ad09485439f0.css");

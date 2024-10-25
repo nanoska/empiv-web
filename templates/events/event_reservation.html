@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Reservas{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Imagen, Título y Descripción a la izquierda -->
+        <div class="col-md-6">
+            <div class="text-center mb-4">
+                <h3>Reservá tu lugar para el evento:</h3>
+                <h5>"{{ event.name }}"</h5>
+            </div>
+            <div class="text-center">
+                <img src="{{ event.image.url }}" class="img-fluid ticket-img" alt="{{ event.name }}">
+            </div>
+        </div>
+        <!-- Formulario a la derecha -->
+        <div class="col-md-6 d-flex align-items-center">
+            <form method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-success">Reservar</button>
+                    <button type="button" id="whatsapp-btn" class="btn btn-info mt-2"><i class="fab fa-whatsapp"></i> Enviar a WhatsApp</button>
+                </div>
+            </form>
+            {% if message %}
+            <div class="alert alert-success mt-4">
+                {{ message }}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const whatsappButton = document.getElementById('whatsapp-btn');
+        whatsappButton.addEventListener('click', function() {
+            const message = `Hola, estoy interesado en asistir al evento "{{ event.name }}".`;
+            const phoneNumber = '{{ phone_number }}'; // Asegúrate de definir este número en tu contexto
+            const whatsappURL = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+            window.open(whatsappURL, '_blank');
+        });
+    });
+</script>
+{% endblock %}

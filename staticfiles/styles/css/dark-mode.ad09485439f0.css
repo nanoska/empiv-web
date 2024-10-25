@@ -1,0 +1,79 @@
+/* Modo Oscuro General */
+.dark-mode {
+  background-color: #222; /* Fondo oscuro similar al del footer */
+  color: #fff; /* Texto claro para el cuerpo */
+}
+
+/* Navegación */
+.dark-mode nav,
+.dark-mode .navbar {
+  background-color: #222; /* Fondo oscuro para la barra de navegación */
+}
+
+/* Enlaces */
+
+/* .dark-mode a {
+  color: #fff; 
+}  */
+
+/* Formularios */
+.dark-mode form {
+  background-color: #222; /* Fondo oscuro para los formularios */
+  color: #ccc; /* Texto claro para los formularios */
+}
+
+.dark-mode form input,
+.dark-mode form select,
+.dark-mode form textarea {
+  background-color: #444; /* Fondo oscuro para los campos de entrada */
+  color: #ddd; /* Texto claro para los campos de entrada */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1); /* Sombra suave alrededor de los campos de entrada */
+}
+
+.dark-mode form button {
+  background-color: #007bff; /* Mantén el color del botón (puede ser cualquier otro color) */
+  color: #fff; /* Texto claro para los botones */
+}
+
+.dark-mode form button:hover {
+  background-color: #0056b3; /* Fondo un poco más oscuro cuando se pasa el ratón por encima */
+}
+
+/* Tarjetas */
+.dark-mode .card {
+  background-color: #333; /* Fondo oscuro para las tarjetas */
+  color: #ddd; /* Texto claro para las tarjetas */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Sombra clara para las tarjetas */
+}
+
+.dark-mode .card-title {
+  color: #f8f9fa; /* Color claro para los títulos de las tarjetas */
+}
+
+.dark-mode .card-body {
+  background-color: #333; /* Fondo oscuro para el cuerpo de las tarjetas */
+}
+
+/* Tablas */
+.dark-mode .table {
+  background-color: #333; /* Fondo oscuro para las tablas */
+  color: #ddd; /* Texto claro para las tablas */
+}
+
+.dark-mode .table th,
+.dark-mode .table td {
+  border-color: #444; /* Color de borde para las celdas de la tabla */
+}
+
+
+/* Footer */
+.dark-mode footer {
+  background-color: #222; /* Fondo oscuro para el pie de página */
+  color: #ddd; /* Texto claro para el pie de página */
+}
+
+/* Carrusel */
+.dark-mode .carousel-caption {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente oscuro para los textos del carrusel */
+  color: #ddd; /* Texto claro para los textos del carrusel */
+}

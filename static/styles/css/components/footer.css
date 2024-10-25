@@ -1,0 +1,44 @@
+/* Estilos del Footer */
+footer {
+  padding: 20px 0; /* Espaciado superior e inferior del footer */
+  color: #fff; /* Color del texto del footer */
+}
+
+footer .container {
+  max-width: 1140px; /* Ancho máximo del contenedor del footer */
+  margin: auto; /* Centra el contenedor del footer */
+}
+
+footer a {
+  color: #fff; /* Color de los enlaces en el footer */
+  text-decoration: none; /* Elimina la subrayado de los enlaces */
+}
+
+footer a:hover {
+  text-decoration: underline; /* Subraya los enlaces al pasar el ratón */
+}
+
+footer .fab {
+  font-size: 1.5rem; /* Tamaño de fuente de los iconos de redes sociales */
+}
+
+/* Fijar el Footer en la parte inferior */
+html, body {
+  height: 100%; /* Asegura que el html y body ocupen toda la altura de la pantalla */
+}
+
+body {
+  display: flex; /* Habilita Flexbox en el body */
+  flex-direction: column; /* Coloca los elementos del body en una columna */
+}
+
+.container {
+  flex: 1; /* Permite que el contenedor principal crezca para llenar el espacio disponible */
+}
+
+footer {
+  background-color: #343a40; /* Color de fondo del footer */
+  color: white; /* Color del texto del footer */
+  padding: 20px 0; /* Espaciado superior e inferior del footer */
+  flex-shrink: 0; /* Evita que el footer se reduzca */
+}

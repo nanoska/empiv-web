@@ -1,0 +1,64 @@
+<!-- templates/users/profile_dashboard.html -->
+{% extends "base.html" %}
+
+{% block title %}Dashboard de Perfil{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Dashboard de Perfil</h2>
+    
+    <!-- Información del Usuario -->
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <span><i class="fas fa-user"></i> Información del Usuario</span>
+            <a href="{% url 'user_edit' %}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Editar</a>
+        </div>
+        <div class="card-body">
+            <p><strong>Nombre de usuario:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Roles:</strong>
+                {% if user.is_superuser %}Superusuario{% endif %}
+                {% if user.is_staff %} Staff{% endif %}
+                {% if user.is_teacher %} Profesor{% endif %}
+                {% if user.is_student %} Estudiante{% endif %}
+                {% if user.is_normal %} Usuario Normal{% endif %}
+            </p>
+        </div>
+    </div>
+
+    <!-- Información del Estudiante (si aplica) -->
+    {% if user.is_student %}
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-music"></i> Información del Estudiante
+        </div>
+        <div class="card-body">
+            <p><strong>Instrumento Principal:</strong> {{ user.student.primary_instrument }}</p>
+            <p><strong>Otros Instrumentos:</strong> 
+                {% for instrument in user.student.instruments.all %}
+                    {{ instrument.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Información del Profesor (si aplica) -->
+    {% if user.is_teacher %}
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-chalkboard-teacher"></i> Información del Profesor
+        </div>
+        <div class="card-body">
+            <p><strong>Instrumento Principal:</strong> {{ user.teacher.primary_instrument }}</p>
+            <p><strong>Otros Instrumentos:</strong> 
+                {% for instrument in user.teacher.instruments.all %}
+                    {{ instrument.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+            </p>
+            <p><strong>Biografía:</strong> {{ user.teacher.bio }}</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

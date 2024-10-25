@@ -1,0 +1,51 @@
+<!-- templates/location_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}Detalles de la Ubicación{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Columna izquierda con la imagen -->
+        <div class="col-md-6">
+            <img src="{{ location.image.url }}" alt="{{ location.name }}" class="img-fluid rounded">
+        </div>
+        <!-- Columna derecha con datos y mapa -->
+        <div class="col-md-6 d-flex flex-column">
+            <!-- Fila superior con los datos de la ubicación -->
+            <div class="mb-2">
+                <h2>{{ location.name }}</h2>
+                <p>Dirección: <strong>{{ location.address }}</strong></p>
+                <p>Ciudad: <strong>{{ location.city }}</strong></p>
+                <p>Localidad: <strong>{{ location.state }}</strong></p>
+                <p>Teléfono: <strong>{{ location.phone }}</strong></p>
+                <p>Email: <strong>{{ location.email }}</strong></p>
+                <p>Sitio Web: <a href="{{ location.website }}" target="_blank">{{ location.website }}</a></p>
+            </div>
+            <!-- Fila inferior con el iframe de Google Maps -->
+            <div>
+                <div id="map"></div>
+                {% if location.iframe %}
+                <div>
+                    {{ location.iframe|safe }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var map = L.map('map').setView([{{ location.latitude }}, {{ location.longitude }}], 15);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        L.marker([{{ location.latitude }}, {{ location.longitude }}]).addTo(map)
+            .bindPopup('{{ location.name }}')
+            .openPopup();
+    });
+</script>
+{% endblock %}

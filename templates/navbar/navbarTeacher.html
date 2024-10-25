@@ -1,0 +1,25 @@
+<!-- navbar/navbarTeacher.html -->
+<ul class="navbar-nav me-auto">
+  <li class="nav-item">
+    <a class="nav-link {% if "home" in request.path %}active{% endif %}" href="/home">Inicio</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if "workshops" in request.path %}active{% endif %}" href="/workshops">Talleres</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if "contact" in request.path %}active{% endif %}" href="#">Mis talleres</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {% if "contact" in request.path %}active{% endif %}" href="#">Mis Alumnos</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">TEACHER Dropdown</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </li>
+</ul>

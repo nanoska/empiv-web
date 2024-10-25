@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Eliminar Clase Particular{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Eliminar Clase Particular</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <p>¿Estás seguro de que deseas eliminar la clase <strong>{{ clase.title }}</strong>?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger w-100">Eliminar</button>
+                <a href="{% url 'single_lessons_list' %}" class="btn btn-secondary w-100 mt-2">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

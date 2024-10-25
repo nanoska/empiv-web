@@ -1,0 +1,12 @@
+/* Página en Construcción */
+.under-construction-container {
+    padding-top: 100px; /* Añade padding superior al contenedor */
+    padding-bottom: 100px; /* Añade padding inferior al contenedor */
+  }
+  
+  .under-construction-container i {
+    font-size: 100px; /* Tamaño de la fuente del icono */
+    color: #f0ad4e; /* Color del icono */
+    margin-bottom: 20px; /* Añade un margen inferior al icono */
+  }
+  

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Talleres Grupales{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Talleres Grupales</h2>
+    <div class="row">
+        {% if talleres %}
+            {% for taller in talleres %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    {% if taller.image %}
+                    <img src="{{ taller.image.url }}" class="card-img-top" alt="{{ taller.name }}">
+                    {% else %}
+                    <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+                        <rect width="100%" height="100%" fill="#868e96"></rect>
+                        <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text>
+                    </svg>
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ taller.name }}</h5>
+                        <p class="card-text">{{ taller.description }}</p>
+                        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#taller{{ taller.id }}" aria-expanded="false" aria-controls="taller{{ taller.id }}">
+                            Más Información
+                        </button>
+                        <a href="https://wa.me/+5491160470561?text=Hola quisiera información sobre el taller {{ taller.name }}" class="text-black me-2"><i class="fab fa-whatsapp"></i></a>
+                        <div class="collapse mt-3" id="taller{{ taller.id }}">
+                            <div class="card card-body">
+                                <p>Ubicación: {{ taller.location }}</p>
+                                <p>Días: {{ taller.day }}</p>
+                                <p>Hora: {{ taller.init_time }} - {{ taller.end_time }}</p>
+                            </div>
+                        </div>
+                        {% if user.is_staff %}
+                        <a href="{% url 'workshop_list' %}" class="btn btn-success">Agregar Alumnos</a>
+                        <a href="{% url 'workshop_update' taller.id %}" class="btn btn-warning">Editar</a>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer text-muted">
+                        Creado el: {{ taller.created_at }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+        <div class="alert alert-warning mt-4 mb-4" role="alert">
+            No hay talleres registrados.
+            {% if user.is_staff %}
+            <a href="{% url 'workshop_create' %}" class="btn btn-success btn-sm float-end" title="Agregar Alumnx">
+              <i class="fa-solid fa-plus fa-lg"></i> Agregar
+            </a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
