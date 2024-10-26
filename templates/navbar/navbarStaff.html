@@ -1,5 +1,20 @@
 <!-- templates/navbar/navbarStaff.html -->
 <ul class="navbar-nav me-auto">
+  
+  <!-- Talleres -->
+  <li class="nav-item">
+    <a class="nav-link {% if "talleres" in request.path %}active{% endif %}" href="{% url 'workshop_list' %}">
+      <i class="fa-solid fa-paint-brush fa-lg"></i> Talleres
+    </a>
+  </li>
+
+  <!-- Clases Particulares -->
+  <li class="nav-item">
+    <a class="nav-link {% if "clases-particulares" in request.path %}active{% endif %}" href="{% url 'single_lesson_list' %}">
+      <i class="fa-solid fa-user-graduate fa-lg"></i> Clases Particulares
+    </a>
+  
+  
   {% comment %} <!-- Alumnos -->
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle {% if "student" in request.path %}active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -27,20 +42,8 @@
     </a>
   </li> {% endcomment %}
   
-  <!-- Talleres -->
-  <li class="nav-item">
-    <a class="nav-link {% if "talleres" in request.path %}active{% endif %}" href="{% url 'workshop_list' %}">
-      <i class="fa-solid fa-paint-brush fa-lg"></i> Talleres
-    </a>
-  </li>
-
-  <!-- Clases Particulares -->
-  <li class="nav-item">
-    <a class="nav-link {% if "clases-particulares" in request.path %}active{% endif %}" href="{% url 'single_lesson_list' %}">
-      <i class="fa-solid fa-user-graduate fa-lg"></i> Clases Particulares
-    </a>
   
-  {% comment %} <!-- Biblioteca -->
+    {% comment %} <!-- Biblioteca -->
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle {% if "library" in request.path %}active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
       <i class="fa-solid fa-book fa-lg"></i> Biblioteca
@@ -77,12 +80,12 @@
       <a class="dropdown-item {% if "eventos/list" in request.path %}active{% endif %}" href="{% url 'events' %}">
         <i class="fa-regular fa-calendar-check"></i> Ver eventos
       </a>
-      {% comment %} <a class="dropdown-item {% if "evento/create" in request.path %}active{% endif %}" href="{% url 'event_create' %}">
+      <a class="dropdown-item {% if "evento/create" in request.path %}active{% endif %}" href="{% url 'event_create' %}">
         <i class="fa-solid fa-calendar-plus"></i> Crear evento
       </a>
       <a class="dropdown-item {% if "locacion/create" in request.path %}active{% endif %}" href="{% url 'location_create' %}">
         <i class="fa-solid fa-plus"></i> Agregar locación
-      </a> {% endcomment %}
+      </a> 
       {% comment %} <a class="dropdown-item {% if "repertorio/create" in request.path %}active{% endif %}" href="{% url 'repertoire_create' %}">
         <i class="fa-solid fa-plus"></i> Agregar repertorio
       </a> {% endcomment %}
