@@ -55,14 +55,15 @@ class LocationForm(forms.ModelForm):
         self.helper.add_input(Submit('submit', 'Guardar'))
 
 
-class EventReservationForm(forms.Form):
-    name = forms.CharField(max_length=50)
-    email = forms.EmailField()
-    phone = forms.CharField(max_length=15)
-    guests = forms.IntegerField(min_value=1, max_value=10)
-    message = forms.CharField(widget=forms.Textarea(attrs={'rows': 4, 'cols': 15}))
-    
 
+class EventReservationForm(forms.ModelForm):
+    class Meta:
+        model = EventReservation
+        fields = ['event', 'name', 'email', 'phone']  # Asegúrate de incluir el campo 'event'
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['event'].widget = forms.HiddenInput()  # Ocultar el campo 'event' si no es editable
 
 
 # class ReservationForm(forms.ModelForm):

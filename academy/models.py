@@ -25,8 +25,6 @@ class SingleClass(models.Model):
     long_description = models.TextField()
     price = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
     duration = models.DurationField()
-    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='single_lessons')
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='single_lessons')
     type = models.CharField(max_length=1, choices=TYPE_CHOICES)
     modality = models.CharField(max_length=1, choices=MODALITY_CHOICES)
     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='single_lessons', null=True, blank=True)
@@ -34,7 +32,6 @@ class SingleClass(models.Model):
     def __str__(self):
         return self.title
     
-
 
 class Workshop(models.Model):
 

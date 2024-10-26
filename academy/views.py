@@ -8,6 +8,13 @@ from django.urls import reverse_lazy
 from .models import *
 from .forms import *
 
+# cargar variables de entorno wp_number
+import os
+from dotenv import load_dotenv  
+load_dotenv()
+
+WP_PHONE_NUMBER = os.getenv('WP_PHONE_NUMBER')
+
 # %% WORKSHOPS VIEWS
 
 class WorkshopListView(ListView):
@@ -17,6 +24,11 @@ class WorkshopListView(ListView):
 
     def get_queryset(self):
         return Workshop.objects.all().order_by('created_at')
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['wp_phone_number'] = WP_PHONE_NUMBER
+        return context
     
 
 class WorkshopDetailView(DetailView):
@@ -60,6 +72,11 @@ class SingleLessonsListView(ListView):
     model = SingleClass
     template_name = 'academy/single_lessons/single_lessons_list.html'
     context_object_name = 'clases'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['wp_phone_number'] = WP_PHONE_NUMBER
+        return context
 
 
 class SingleLessonDetailView(DetailView):

@@ -89,17 +89,6 @@ class EventCreateView(LoginRequiredMixin, StaffRequiredMixin, CreateView):
         return super().form_valid(form)
     
 
-
-# class EventReservationCreateView(FormView):
-#     form_class = EventReservationForm
-#     template_name = 'events/event_reservation.html'
-#     success_url = reverse_lazy('events')
-
-#     def form_valid(self, form):
-#         form.save()
-#         messages.success(self.request, 'Reserva realizada con éxito.')
-#         return super().form_valid(form)
-
 # %% Locations
 
 class LocationDetailView(DetailView):
@@ -130,22 +119,22 @@ class LocationListView(ListView):
 
 # %% Reservation
 
-# class EventReservationView(CreateView):
-#     model = Reservation
-#     form_class = ReservationForm
-#     template_name = 'events/event_reservation.html'
+class EventReservationView(CreateView):
+    model = EventReservation
+    form_class = EventReservationForm
+    template_name = 'events/event_reservation.html'
 
-#     def get_success_url(self):
-#         return reverse('event_detail', args=[self.object.event.id])
+    def get_success_url(self):
+        return reverse('event_detail', args=[self.object.event.id])
 
-#     def form_valid(self, form):
-#         form.instance.event = get_object_or_404(Event, pk=self.kwargs['pk'])
-#         messages.success(self.request, 'Reservación exitosa.')
-#         return super().form_valid(form)
+    def form_valid(self, form):
+        form.instance.event = get_object_or_404(Event, pk=self.kwargs['pk'])
+        messages.success(self.request, 'Reservación exitosa.')
+        return super().form_valid(form)
 
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['event'] = get_object_or_404(Event, pk=self.kwargs['pk'])
-#         context['wp_phone_number'] = WP_PHONE_NUMBER
-#         return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['event'] = get_object_or_404(Event, pk=self.kwargs['pk'])
+        context['wp_phone_number'] = WP_PHONE_NUMBER
+        return context
     

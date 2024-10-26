@@ -6,7 +6,7 @@ from .models import *
 class SingleClassForm(forms.ModelForm):
     class Meta:
         model = SingleClass
-        fields = ['title', 'short_description', 'long_description', 'price', 'duration', 'teacher', 'student', 'type', 'modality']
+        fields = ['title', 'short_description', 'long_description', 'price', 'duration', 'teacher', 'type', 'modality']
 
         # Personalizar los widgets para algunos campos
         widgets = {
@@ -18,7 +18,6 @@ class SingleClassForm(forms.ModelForm):
             'type': forms.Select(attrs={'class': 'form-control'}),
             'modality': forms.Select(attrs={'class': 'form-control'}),
             'teacher': forms.Select(attrs={'class': 'form-control'}),
-            'student': forms.Select(attrs={'class': 'form-control'}),
         }
 
     def __init__(self, *args, **kwargs):

@@ -8,13 +8,19 @@
     <h2 class="text-center mb-4">Clases Particulares</h2>
     <div class="row justify-content-center">
         {% if clases %}
-        <div class="col-md-10">
+        <div class="row">
             {% for clase in clases %}
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">{{ clase.title }}</h5>
-                    <p class="card-text">{{ clase.short_description }}</p>
-                    <a href="{% url 'single_lesson_detail' clase.id %}" class="btn btn-primary">Ver detalles</a>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ clase.title }}</h5>
+                        <p class="card-text">{{ clase.short_description }}</p>
+
+                        <!-- Botón para solicitar información por WhatsApp -->
+                        <a href="https://wa.me/+5491160470561?text=Hola, quisiera información sobre la clase particular: {{ clase.title }}" target="_blank" class="btn btn-success mt-2 w-100">
+                            <i class="fab fa-whatsapp"></i> Solicitar Información
+                        </a>
+                    </div>
                 </div>
             </div>
             {% endfor %}
