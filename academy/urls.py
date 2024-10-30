@@ -11,13 +11,13 @@ urlpatterns = [
     path('taller/delete/<int:pk>/', WorkshopDeleteView.as_view(), name='workshop_delete'),
 ]
 
-urlpatterns += [
-    path('clases-particulares/', SingleLessonsListView.as_view(), name='single_lesson_list'),
-    path('clases-particulares/create/', SingleLessonCreateView.as_view(), name='single_lesson_create'),
-    path('clases-particulares/<int:pk>/', SingleLessonDetailView.as_view(), name='single_lesson_detail'),
-    path('clases-particulares/update/<int:pk>/', SingleLessonUpdateView.as_view(), name='single_lesson_update'),
-    path('clases-particulares/delete/<int:pk>/', SingleLessonDeleteView.as_view(), name='single_lesson_delete'),
-]
+# urlpatterns += [
+#     path('clases-particulares/', SingleLessonsListView.as_view(), name='single_lesson_list'),
+#     path('clases-particulares/create/', SingleLessonCreateView.as_view(), name='single_lesson_create'),
+#     path('clases-particulares/<int:pk>/', SingleLessonDetailView.as_view(), name='single_lesson_detail'),
+#     path('clases-particulares/update/<int:pk>/', SingleLessonUpdateView.as_view(), name='single_lesson_update'),
+#     path('clases-particulares/delete/<int:pk>/', SingleLessonDeleteView.as_view(), name='single_lesson_delete'),
+# ]
 
 # urlpatterns += [
 #     # path('taller/<int:pk>/inscripciones/', EnrollmentView.as_view(), name='enrollment'),

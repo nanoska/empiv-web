@@ -11,6 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       {% if user.is_authenticated %}
         {% if user.is_staff %}
+        {% include 'navbar/navbarNormal.html' %}
           {% include 'navbar/navbarStaff.html' %}
         {% elif user.is_student %}
           {% include 'navbar/navbarStudent.html' %}
@@ -33,13 +34,13 @@
               <li><a class="dropdown-item" href="{% url 'profile_dashboard' %}"><i class="fas fa-user-circle"></i> Ver Perfil</a></li>
               <li><a class="dropdown-item" href="{% url 'under_construction' %}"><i class="fas fa-cog"></i> Configuración</a></li>
               <li><a class="dropdown-item" href="{% url 'under_construction' %}"><i class="fas fa-history"></i> Historial</a></li>
-              {% comment %} <li>
-                {% if user.is_staff %}
+              <li>
+                {% comment %} {% if user.is_staff %}
                   <a class="dropdown-item" href="{% url 'financial_dashboard' %}"><i class="fas fa-wallet"></i> Pagos</a>
                 {% else %}
                   <a class="dropdown-item" href="{% url 'payments_dashboard' %}"><i class="fas fa-wallet"></i> Pagos</a>
-                {% endif %}
-              </li> {% endcomment %}
+                {% endif %} {% endcomment %}
+              </li>
               <li><a class="dropdown-item" href="{% url 'under_construction' %}"><i class="fas fa-bell"></i> Notificaciones</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>

@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 
-from music.models import Instrument
+# from music.models import Instrument
 
 class User(AbstractUser):
     email = models.EmailField(_('email address'), unique=True)  # Asegura que el email sea único
@@ -24,30 +24,30 @@ class User(AbstractUser):
 
 # %%
 
-class Normal(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+# class Normal(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return f"{self.user.username}"
-
-
-class Student(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='student', unique=True)
-    instruments = models.ManyToManyField(Instrument, related_name='student_instruments', blank=True)
-    primary_instrument = models.ForeignKey(Instrument, on_delete=models.CASCADE, default=None, blank=True, null=True)
-
-    def __str__(self):
-        return f"Alumnx: {self.user.username} | {self.primary_instrument}"
+#     def __str__(self):
+#         return f"{self.user.username}"
 
 
-class Teacher(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    instruments = models.ManyToManyField(Instrument, related_name='teacher_instruments')
-    primary_instrument = models.ForeignKey(Instrument, on_delete=models.CASCADE, default=None, blank=True, null=True)
-    bio = models.TextField()
+# class Student(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='student', unique=True)
+#     instruments = models.ManyToManyField(Instrument, related_name='student_instruments', blank=True)
+#     primary_instrument = models.ForeignKey(Instrument, on_delete=models.CASCADE, default=None, blank=True, null=True)
 
-    def __str__(self):
-        return f"{self.user.username}"
+#     def __str__(self):
+#         return f"Alumnx: {self.user.username} | {self.primary_instrument}"
+
+
+# class Teacher(models.Model):
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#     instruments = models.ManyToManyField(Instrument, related_name='teacher_instruments')
+#     primary_instrument = models.ForeignKey(Instrument, on_delete=models.CASCADE, default=None, blank=True, null=True)
+#     bio = models.TextField()
+
+#     def __str__(self):
+#         return f"{self.user.username}"
     
 
     

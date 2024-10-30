@@ -4,8 +4,8 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import PasswordResetForm, UserCreationForm
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
-from .models import Student
-from music.models import Instrument
+# from .models import Student
+# from music.models import Instrument
 
 User = get_user_model()
 

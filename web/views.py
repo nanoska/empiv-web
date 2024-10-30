@@ -1,7 +1,7 @@
 # web/views.py
 
 from events.models import Event
-from users.models import User, Teacher
+from users.models import User #, Teacher
 from .forms import ContactForm
 
 from django.shortcuts import render, redirect

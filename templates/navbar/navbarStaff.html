@@ -8,11 +8,11 @@
     </a>
   </li>
 
-  <!-- Clases Particulares -->
+  {% comment %} <!-- Clases Particulares -->
   <li class="nav-item">
     <a class="nav-link {% if "clases-particulares" in request.path %}active{% endif %}" href="{% url 'single_lesson_list' %}">
       <i class="fa-solid fa-user-graduate fa-lg"></i> Clases Particulares
-    </a>
+    </a> {% endcomment %}
   
   
   {% comment %} <!-- Alumnos -->

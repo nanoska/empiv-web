@@ -68,41 +68,41 @@ class WorkshopDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
 
 # %% SINGLE LESSONS VIEWS
 
-class SingleLessonsListView(ListView):
-    model = SingleClass
-    template_name = 'academy/single_lessons/single_lessons_list.html'
-    context_object_name = 'clases'
+# class SingleLessonsListView(ListView):
+#     model = SingleClass
+#     template_name = 'academy/single_lessons/single_lessons_list.html'
+#     context_object_name = 'clases'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['wp_phone_number'] = WP_PHONE_NUMBER
-        return context
-
-
-class SingleLessonDetailView(DetailView):
-    model = SingleClass
-    template_name = 'academy/single_lessons/single_lesson_detail.html'
-    context_object_name = 'clase'
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['wp_phone_number'] = WP_PHONE_NUMBER
+#         return context
 
 
-class SingleLessonCreateView(LoginRequiredMixin, StaffRequiredMixin, CreateView):
-    model = SingleClass
-    template_name = 'academy/single_lessons/single_lesson_form.html'
-    fields = '__all__'
-    success_url = '/academia/clases-particulares/'
+# class SingleLessonDetailView(DetailView):
+#     model = SingleClass
+#     template_name = 'academy/single_lessons/single_lesson_detail.html'
+#     context_object_name = 'clase'
 
 
-class SingleLessonUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
-    model = SingleClass
-    template_name = 'academy/single_lessons/single_lesson_update_form.html'
-    fields = '__all__'
-    success_url = '/academia/clases-particulares/'
+# class SingleLessonCreateView(LoginRequiredMixin, StaffRequiredMixin, CreateView):
+#     model = SingleClass
+#     template_name = 'academy/single_lessons/single_lesson_form.html'
+#     fields = '__all__'
+#     success_url = '/academia/clases-particulares/'
 
 
-class SingleLessonDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
-    model = SingleClass
-    template_name = 'academy/single_lessons/single_lesson_confirm_delete.html'
-    success_url = '/academia/clases-particulares/'
+# class SingleLessonUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
+#     model = SingleClass
+#     template_name = 'academy/single_lessons/single_lesson_update_form.html'
+#     fields = '__all__'
+#     success_url = '/academia/clases-particulares/'
+
+
+# class SingleLessonDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
+#     model = SingleClass
+#     template_name = 'academy/single_lessons/single_lesson_confirm_delete.html'
+#     success_url = '/academia/clases-particulares/'
     
 
 # %% Repertoire

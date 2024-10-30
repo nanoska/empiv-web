@@ -2,7 +2,7 @@ from django.contrib import admin
 from .models import *
 
 # Register your models here.
-admin.site.register(Instrument)
+# admin.site.register(Instrument)
 # admin.site.register(Sound)
 # admin.site.register(Rithm)
 # admin.site.register(Note)

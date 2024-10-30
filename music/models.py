@@ -1,25 +1,25 @@
 from django.db import models
 
-# Create your models here.
-class Instrument(models.Model):
-    TYPE_CHOICES = [
-        ('brass', 'Brass'),
-        ('woodwind', 'Woodwind'),
-    ]
+# # Create your models here.
+# class Instrument(models.Model):
+#     TYPE_CHOICES = [
+#         ('brass', 'Brass'),
+#         ('woodwind', 'Woodwind'),
+#     ]
 
-    TONE_CHOICES = [
-        ('C', 'C'),
-        ('Bb', 'Bb'),
-        ('Eb', 'Eb'),
-    ]
+#     TONE_CHOICES = [
+#         ('C', 'C'),
+#         ('Bb', 'Bb'),
+#         ('Eb', 'Eb'),
+#     ]
 
-    name = models.CharField(max_length=255, null=True, blank=True)
-    type = models.CharField(max_length=255, choices=TYPE_CHOICES)
-    image = models.ImageField(upload_to='instruments', null=True, blank=True)
-    tone = models.CharField(max_length=255, choices=TONE_CHOICES)
+#     name = models.CharField(max_length=255, null=True, blank=True)
+#     type = models.CharField(max_length=255, choices=TYPE_CHOICES)
+#     image = models.ImageField(upload_to='instruments', null=True, blank=True)
+#     tone = models.CharField(max_length=255, choices=TONE_CHOICES)
 
-    def __str__(self):
-        return f"{self.name} | {self.tone}"
+#     def __str__(self):
+#         return f"{self.name} | {self.tone}"
     
 
 # class Rithm(models.Model):

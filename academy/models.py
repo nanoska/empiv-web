@@ -4,33 +4,33 @@ from events.models import *
 # from library.models import *
 
 
-class SingleClass(models.Model):
+# class SingleClass(models.Model):
 
-    TYPE_CHOICES = [
-        ('1', 'Instrumento'),
-        ('2', 'Teoria'),
-        ('3', 'Otro')
-    ]
+#     TYPE_CHOICES = [
+#         ('1', 'Instrumento'),
+#         ('2', 'Teoria'),
+#         ('3', 'Otro')
+#     ]
 
-    MODALITY_CHOICES = [
-        ('1', 'Presencial'),
-        ('2', 'Online'),
-        ('3', 'Híbrido'),
-        ('4', 'A domicilio'),
-        ('5', 'Asincrónico')
-    ]
+#     MODALITY_CHOICES = [
+#         ('1', 'Presencial'),
+#         ('2', 'Online'),
+#         ('3', 'Híbrido'),
+#         ('4', 'A domicilio'),
+#         ('5', 'Asincrónico')
+#     ]
 
-    title = models.CharField(max_length=100)
-    short_description = models.CharField(max_length=255)
-    long_description = models.TextField()
-    price = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
-    duration = models.DurationField()
-    type = models.CharField(max_length=1, choices=TYPE_CHOICES)
-    modality = models.CharField(max_length=1, choices=MODALITY_CHOICES)
-    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='single_lessons', null=True, blank=True)
+#     title = models.CharField(max_length=100)
+#     short_description = models.CharField(max_length=255)
+#     long_description = models.TextField()
+#     price = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+#     duration = models.DurationField()
+#     type = models.CharField(max_length=1, choices=TYPE_CHOICES)
+#     modality = models.CharField(max_length=1, choices=MODALITY_CHOICES)
+#     teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name='single_lessons', null=True, blank=True)
 
-    def __str__(self):
-        return self.title
+#     def __str__(self):
+#         return self.title
     
 
 class Workshop(models.Model):
@@ -71,7 +71,7 @@ class Workshop(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     max_participants = models.PositiveIntegerField()
-    teachers = models.ManyToManyField(Teacher, related_name='workshops', blank=True)
+    # teachers = models.ManyToManyField(Teacher, related_name='workshops', blank=True)
 
     def __str__(self):
         return self.name
