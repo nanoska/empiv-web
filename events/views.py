@@ -36,7 +36,7 @@ class EventListView(ListView):
 class EventDetailView(DetailView, FormView):
     model = Event
     template_name = 'events/event_detail.html'
-    form_class = EventReservationForm
+    form_class = EventForm
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -44,12 +44,12 @@ class EventDetailView(DetailView, FormView):
         context['today'] = timezone.now().date()
         return context
 
-    def get_form(self, form_class=None):
-        event = self.get_object()
-        form = super().get_form(form_class)
-        form.fields['event'].initial = event
-        form.fields['event'].widget.attrs['readonly'] = True
-        return form
+    # def get_form(self, form_class=None):
+    #     event = self.get_object()
+    #     form = super().get_form(form_class)
+    #     form.fields['event'].initial = event
+    #     form.fields['event'].widget.attrs['readonly'] = True
+    #     return form
 
     def form_valid(self, form):
         form.save()
@@ -119,22 +119,22 @@ class LocationListView(ListView):
 
 # %% Reservation
 
-class EventReservationView(CreateView):
-    model = EventReservation
-    form_class = EventReservationForm
-    template_name = 'events/event_reservation.html'
+# class EventReservationView(CreateView):
+#     model = EventReservation
+#     form_class = EventReservationForm
+#     template_name = 'events/event_reservation.html'
 
-    def get_success_url(self):
-        return reverse('event_detail', args=[self.object.event.id])
+#     def get_success_url(self):
+#         return reverse('event_detail', args=[self.object.event.id])
 
-    def form_valid(self, form):
-        form.instance.event = get_object_or_404(Event, pk=self.kwargs['pk'])
-        messages.success(self.request, 'Reservación exitosa.')
-        return super().form_valid(form)
+#     def form_valid(self, form):
+#         form.instance.event = get_object_or_404(Event, pk=self.kwargs['pk'])
+#         messages.success(self.request, 'Reservación exitosa.')
+#         return super().form_valid(form)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['event'] = get_object_or_404(Event, pk=self.kwargs['pk'])
-        context['wp_phone_number'] = WP_PHONE_NUMBER
-        return context
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['event'] = get_object_or_404(Event, pk=self.kwargs['pk'])
+#         context['wp_phone_number'] = WP_PHONE_NUMBER
+#         return context
     

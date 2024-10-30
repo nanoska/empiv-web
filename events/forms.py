@@ -56,14 +56,14 @@ class LocationForm(forms.ModelForm):
 
 
 
-class EventReservationForm(forms.ModelForm):
-    class Meta:
-        model = EventReservation
-        fields = ['event', 'name', 'email', 'phone']  # Asegúrate de incluir el campo 'event'
+# class EventReservationForm(forms.ModelForm):
+#     class Meta:
+#         model = EventReservation
+#         fields = ['event', 'name', 'email', 'phone']  # Asegúrate de incluir el campo 'event'
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['event'].widget = forms.HiddenInput()  # Ocultar el campo 'event' si no es editable
+#     def __init__(self, *args, **kwargs):
+#         super().__init__(*args, **kwargs)
+#         self.fields['event'].widget = forms.HiddenInput()  # Ocultar el campo 'event' si no es editable
 
 
 # class ReservationForm(forms.ModelForm):

@@ -41,16 +41,16 @@ class Event(models.Model):
         return self.name
 
 
-class EventReservation(models.Model):
-    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='reservations', verbose_name='Evento')
-    name = models.CharField(max_length=255, verbose_name='Nombre')
-    email = models.EmailField(verbose_name='Email')
-    phone = models.CharField(max_length=255, verbose_name='Teléfono')
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+# class EventReservation(models.Model):
+#     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='reservations', verbose_name='Evento')
+#     name = models.CharField(max_length=255, verbose_name='Nombre')
+#     email = models.EmailField(verbose_name='Email')
+#     phone = models.CharField(max_length=255, verbose_name='Teléfono')
+#     created_at = models.DateTimeField(auto_now_add=True)
+#     updated_at = models.DateTimeField(auto_now=True)
 
-    def __str__(self):
-        return self.name
+#     def __str__(self):
+#         return self.name
     
 
 # class Galery(models.Model):

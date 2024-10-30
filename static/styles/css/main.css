@@ -16,6 +16,7 @@
 /* Secciones */
 @import url('sections/home.css');
 @import url('sections/about_us.css');
+@import url('sections/events.css');
 
 /* Modo oscuro */
 @import url('dark-mode.css');
