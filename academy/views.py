@@ -41,20 +41,20 @@ class WorkshopCreateView(LoginRequiredMixin, StaffRequiredMixin, CreateView):
     model = Workshop
     template_name = 'academy/workshops/workshop_form.html'
     fields = '__all__'
-    success_url = '/academia/talleres'
+    success_url = reverse_lazy('workshop_list')
 
 
 class WorkshopUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
     model = Workshop
     template_name = 'academy/workshops/workshop_update_form.html'
     fields = '__all__'
-    success_url = 'academia/talleres/'
+    success_url = reverse_lazy('workshop_list')
 
 
 class WorkshopDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
     model = Workshop
     template_name = 'academy/workshops/workshop_confirm_delete.html'
-    success_url = 'academia/talleres/'
+    success_url = reverse_lazy('workshop_list')
 
 
 # class MyWorkshopListView(ListView):

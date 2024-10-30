@@ -9,27 +9,26 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   .btn-warning {
     background-color: #ffc107;
     color: #212529;
   }
-  
+
   .btn-danger {
     background-color: #dc3545;
     color: #fff;
   }
-  
+
   .btn-warning:hover {
     background-color: #e0a800;
     color: #fff;
   }
-  
+
   .btn-danger:hover {
     background-color: #c82333;
     color: #fff;
   }
-  
 
   .btn-reserva {
     display: inline-block;
@@ -47,4 +46,86 @@
 
 .btn-reserva:hover {
     background-color: #0056b3;
+}
+
+
+.btn-success {
+  font-size: 0.9rem;
+  font-weight: bold;
+  background-color: #28a745;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+.btn-edit-staff {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #ffc107;
+  font-size: 1.25rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-edit-staff:hover {
+  color: #e0a800;
+  text-decoration: none;
+}
+
+.btn-delete-staff {
+  position: absolute;
+  top: 10px;
+  right: 50px;
+  color: #981408;
+  font-size: 1.25rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn-delete-staff:hover {
+  color: #b33131;
+  text-decoration: none;
+}
+
+
+
+
+/* Botones Centrados de Agregar Evento y Locación */
+.btn-add-event,
+.btn-add-location {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add-event {
+    background-color: #28a745;
+    margin-right: 10px;
+}
+
+.btn-add-location {
+    background-color: #ffc107;
+}
+
+.btn-add-event:hover {
+    background-color: #218838;
+}
+
+.btn-add-location:hover {
+    background-color: #e0a800;
 }

@@ -1,5 +1,6 @@
 # web/views.py
 
+from academy.models import Workshop
 from events.models import Event
 from users.models import User #, Teacher
 from .forms import ContactForm
@@ -20,20 +21,13 @@ from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 
-# necesito importar del .env la variable WP_PHONE_NUMBER
+from typing import Any
 import os
 from dotenv import load_dotenv
+
 load_dotenv()
 
 WP_PHONE_NUMBER = os.getenv("WP_PHONE_NUMBER")
-
-# Create your views here.
-
-
-
-
-#import Any
-from typing import Any
 
 class LoginView(LoginView):
 
@@ -168,6 +162,7 @@ class AboutUsView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['MEDIA_URL'] = settings.MEDIA_URL  # Añade MEDIA_URL al contexto
+        context['talleres'] = Workshop.objects.all()
         return context
     
     
