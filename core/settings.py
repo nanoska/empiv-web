@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     "storages",
 
     "users",
-    "music",
+    # "music",
     "events",
     "academy",
     "web",
