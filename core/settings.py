@@ -170,8 +170,6 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_URL = '/login/'
 
-django_heroku.settings(locals())
-
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
@@ -205,3 +203,6 @@ LOGGING = {
 
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+
+django_heroku.settings(locals())
