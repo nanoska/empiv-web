@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto EMPIV - Diseño de Base de Datos y Modelado</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2, h3 { color: #333; }
+        pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Proyecto EMPIV - 01_02 Diseño de Base de Datos y Modelado</h1>
+
+    <h2>Descripción del Paso</h2>
+    <p>Este paso se enfoca en el diseño y modelado de la base de datos para la aplicación web del Proyecto EMPIV, estableciendo la estructura de datos necesaria para las funcionalidades clave: gestión de eventos, talleres y locaciones. Este diseño será implementado utilizando Django ORM, permitiendo la creación de modelos y relaciones necesarios de manera eficiente y escalable.</p>
+
+    <h2>Objetivos</h2>
+    <ul>
+        <li><strong>Definir Modelos Principales:</strong> Crear modelos Django para cada una de las entidades principales: <code>Eventos</code>, <code>Talleres</code>, y <code>Locaciones</code>.</li>
+        <li><strong>Establecer Relaciones entre Modelos:</strong> Configurar relaciones entre los modelos, permitiendo la asociación entre eventos, talleres y locaciones.</li>
+        <li><strong>Definir Atributos Clave:</strong> Para cada modelo, se especificarán atributos específicos que serán requeridos por las funcionalidades del sistema.</li>
+    </ul>
+
+    <h2>Especificaciones de los Modelos</h2>
+    <h3>1. Modelo <code>Eventos</code></h3>
+    <p><strong>Descripción:</strong> Representa cada evento que será gestionado dentro de la aplicación.</p>
+    <ul>
+        <li><strong>Atributos Clave:</strong> Título, Descripción, Fecha, Estado, Ubicación.</li>
+    </ul>
+
+    <h3>2. Modelo <code>Talleres</code></h3>
+    <p><strong>Descripción:</strong> Representa los talleres disponibles y sus datos de contacto.</p>
+    <ul>
+        <li><strong>Atributos Clave:</strong> Título, Descripción, Fecha Inicio, Fecha Fin, Ubicación.</li>
+    </ul>
+
+    <h3>3. Modelo <code>Locaciones</code></h3>
+    <p><strong>Descripción:</strong> Almacena la información de las ubicaciones donde se llevan a cabo eventos y talleres.</p>
+    <ul>
+        <li><strong>Atributos Clave:</strong> Nombre, Dirección, Capacidad.</li>
+    </ul>
+
+    <h2>Implementación en Django ORM</h2>
+    <pre><code>from django.db import models
+
+class Locacion(models.Model):
+    nombre = models.CharField(max_length=100)
+    direccion = models.TextField()
+    capacidad = models.IntegerField()
+
+class Evento(models.Model):
+    titulo = models.CharField(max_length=200)
+    descripcion = models.TextField()
+    fecha = models.DateTimeField()
+    estado = models.CharField(max_length=50, choices=[('vigente', 'Vigente'), ('pasado', 'Pasado'), ('proximo', 'Próximo')])
+    ubicacion = models.ForeignKey(Locacion, on_delete=models.CASCADE)
+
+class Taller(models.Model):
+    titulo = models.CharField(max_length=200)
+    descripcion = models.TextField()
+    fecha_inicio = models.DateField()
+    fecha_fin = models.DateField()
+    ubicacion = models.ForeignKey(Locacion, on_delete=models.CASCADE)
+</code></pre>
+
+    <h2>Consideraciones Finales</h2>
+    <p>Una vez definidos los modelos, se recomienda realizar pruebas iniciales en Django Shell para validar la integridad de las relaciones y atributos. La creación de migraciones y su ejecución inicial permitirá comprobar la estructura de la base de datos.</p>
+
+</body>
+</html>
