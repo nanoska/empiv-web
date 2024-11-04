@@ -128,28 +128,28 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 
 # Separate storage for static and media files
-if not DEBUG:
-    # Production settings (using S3)
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+# if not DEBUG:
+# Production settings (using S3)
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
 
-    # Media storage
-    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# Media storage
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-    # Static file storage
-    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+# Static file storage
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 
-    # Location for static files collected
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# Location for static files collected
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-else:
-    # Development settings (local storage)
-    STATIC_URL = '/static/'
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# else:
+#     # Development settings (local storage)
+#     STATIC_URL = '/static/'
+#     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-    MEDIA_URL = '/media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#     MEDIA_URL = '/media/'
+#     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Security settings
 if not DEBUG:
