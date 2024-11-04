@@ -58,6 +58,7 @@ class HomeView(TemplateView):
     
     def get(self, request, *args, **kwargs):
         form = ContactForm()
+        print()
         return self.render_to_response(context={'form': form, 
                                                 'events': Event.objects.order_by('-date')[:3],
                                                 'today': timezone.now().date(),
