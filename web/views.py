@@ -6,13 +6,11 @@ from users.models import User #, Teacher
 from .forms import ContactForm
 
 from django.shortcuts import render, redirect
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, DetailView, FormView, ListView, CreateView, UpdateView, DeleteView
 from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView
 from django.shortcuts import resolve_url
 from django.urls import reverse, reverse_lazy
-from core.mixins import StaffRequiredMixin
 from django.utils import timezone
 from django.contrib import messages
 from django.core.mail import send_mail
@@ -48,10 +46,19 @@ class LoginView(LoginView):
 class HomeView(TemplateView):
     template_name = 'main/home.html'
 
+    def get_proximo_evento_id(self):
+        events = Event.objects.all().order_by('date')
+        today = timezone.now().date()
+        if events:
+            for event in events:
+                if event.date >= today:
+                    return event.id
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['events'] = Event.objects.order_by('-date')[:3]
         context['today'] = timezone.now().date()
+        context['proximo_evento_id'] = self.get_proximo_evento_id()  
         context['message'] = self.request.GET.get('message', '')
         context['wp_phone_number'] = WP_PHONE_NUMBER
         return context
@@ -148,8 +155,8 @@ class UnderConstructionView(TemplateView):
     template_name = 'main/under_construction.html'
 
 
-class SingleLessonsView(TemplateView):
-    template_name = 'main/single_lessons.html'
+# class SingleLessonsView(TemplateView):
+#     template_name = 'main/single_lessons.html'
 
 
 class AboutUsView(ListView):

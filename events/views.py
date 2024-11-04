@@ -28,10 +28,21 @@ class EventListView(ListView):
     def get_queryset(self):
         return Event.objects.all().order_by('-date')
 
+    
+    def get_proximo_evento_id(self):
+        events = Event.objects.all().order_by('date')
+        today = timezone.now().date()
+        if events:
+            for event in events:
+                if event.date >= today:
+                    return event.id
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['today'] = timezone.now().date()
+        context['proximo_evento_id'] = self.get_proximo_evento_id()    
         return context
+    
 
 class EventDetailView(DetailView, FormView):
     model = Event

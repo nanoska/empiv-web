@@ -27,7 +27,7 @@
           <div class="card-event border {% if event.date < today %}border-danger text-muted{% else %}border-success{% endif %}">
             
             <!-- Badge para el próximo evento -->
-            {% if event.date >= today %}
+            {% if event.id == proximo_evento_id %}
               <span class="badge bg-warning text-dark" style="position: absolute; top: 10px; left: 10px;">PRÓXIMO</span>
             {% endif %}
 
