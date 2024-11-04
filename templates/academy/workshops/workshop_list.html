@@ -24,8 +24,13 @@
                         <p class="card-text">{{ taller.description|truncatewords:20 }}</p>
                         <p class="card-text"><small class="text-muted">{{ taller.date }}</small></p>
                         <p class="card-text"><small class="text-muted">{{ taller.init_time }} Hs.</small></p>
-                        <a href={% url 'location_detail' taller.location.id %} class="card-text"><strong class="text-muted">{{ taller.location }}</strong></a>
-
+                        {% if taller.location %}
+                            <a href="{% url 'location_detail' taller.location.id %}" class="card-text">
+                                <strong class="text-muted">{{ taller.location }}</strong>
+                            </a>
+                        {% else %}
+                            <p class="card-text text-muted"><strong>Ubicación no disponible</strong></p>
+                        {% endif %}
                         <!-- Botón de más información (WhatsApp) -->
                         <a href="https://wa.me/{{ wp_phone_number }}?text=Hola, quisiera información sobre el taller {{ taller.name }}" target="_blank" class="btn btn-success mt-auto w-100">
                             <i class="fab fa-whatsapp"></i> Más Información
