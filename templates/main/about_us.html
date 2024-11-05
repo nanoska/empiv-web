@@ -3,39 +3,34 @@
 
 {% block title %}Sobre Nosotros{% endblock %}
 
+{% block extrahead %}
+<link rel="stylesheet" href="{% static 'css/about_us.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="container mt-5">
     <div class="row justify-content-center">
         <!-- Sección de Descripción del Proyecto -->
         <section id="proyecto" class="mb-5 text-center">
             <div class="col-md-10 mx-auto">
-                <h2 class="mb-4 text-primary"><i class="fas fa-music"></i> Sobre Nosotros</h2>
+                <h2 class="mb-4" style="color: #8B0000;"><i class="fas fa-music"></i> Sobre Nosotros</h2>
                 <p>
                     Bienvenidos a la Escuela de Música para Instrumentos de Viento (E.M.P.I.V.), un espacio dedicado a la formación musical y al desarrollo artístico de quienes desean explorar el maravilloso mundo de los instrumentos de viento.
                 </p>
-                <p>
-                    Fundada en 2018, nuestra escuela comenzó con un enfoque en el aprendizaje colectivo, impulsando tanto la técnica instrumental como el desarrollo de habilidades sociales a través de la música. En 2020, trasladamos nuestras actividades al Centro Cultural y Social El Faro, donde seguimos creciendo y compartiendo nuestro amor por la música.
-                </p>
-                <p>
-                    Creemos en el poder de la música para cambiar vidas. Trabajamos día a día para ofrecer un entorno creativo y colaborativo que inspire a cada estudiante a expresar su propio estilo y crecer personal y artísticamente.
-                </p>
-                <img src="{% static 'img/about_us_img_01.jpg' %}" class="standard-image img-fluid rounded mt-4" alt="Sobre Nosotros">
+                <img src="{% static 'img/about_us_img_01.jpg' %}" class="about-us-img1 img-fluid mt-4" alt="Sobre Nosotros">
             </div>
         </section>
 
         <!-- Sección del Equipo -->
         <section id="equipo" class="mb-5 text-center">
             <div class="col-md-10 mx-auto">
-                <h2 class="mb-4 text-success"><i class="fas fa-users"></i> Nuestro Equipo</h2>
-                <p class="lead text-muted">
-                    Conformado por profesionales comprometidos y apasionados, nuestro equipo de profesores es el corazón de E.M.P.I.V.
-                </p>
-                <ul class="list-unstyled text-dark">
-                    <li><strong>Nahuel Lurbe</strong> - Coordinador del Área de Bronces Metales (especialista en trompetas, trombones, y otros instrumentos de metal).</li>
-                    <li><strong>Arnaldo Arevalo</strong> - Coordinador del Área de Cañas, con enfoque en saxofones.</li>
-                    <li><strong>Nicolás Muzio</strong> - Responsable del Área de Clarinetes, con gran experiencia en técnicas de respiración y afinación.</li>
+                <h2 class="mb-4" style="color: #8B4513;"><i class="fas fa-users"></i> Nuestro Equipo</h2>
+                <ul class="list-unstyled" style="color: #5D4037;">
+                    <li><strong>Nahuel Lurbe</strong> - Coordinador del Área de Bronces Metales.</li>
+                    <li><strong>Arnaldo Arevalo</strong> - Coordinador del Área de Cañas.</li>
+                    <li><strong>Nicolás Muzio</strong> - Responsable del Área de Clarinetes.</li>
                 </ul>
-                <img src="{% static 'img/about_us_img_02.jpg' %}" class="img-fluid rounded-circle mt-4" alt="Nuestro Equipo" style="width: 300px;">
+                <img src="{% static 'img/about_us_img_02.jpg' %}" class="about-us-img2 img-fluid mt-4" alt="Nuestro Equipo">
             </div>
         </section>
 
@@ -43,57 +38,25 @@
         <section id="pedagogia" class="mb-5 d-flex align-items-center" style="background-color: #FFE4B5; padding: 30px; border-radius: 10px;">
             <div class="col-md-6 text-center">
                 <h2 class="mb-4 text-danger"><i class="fas fa-chalkboard-teacher"></i> Nuestra Pedagogía</h2>
-                <p class="text-muted">
+                <p style="color: #4B3F3F;">
                     Nuestra filosofía pedagógica va más allá de la técnica. Integramos el trabajo en equipo y la expresión personal, alentando a los estudiantes a desarrollar no solo su habilidad musical, sino también su capacidad de comunicación y liderazgo.
-                </p>
-                <p class="text-muted">
-                    En cada clase, combinamos teoría y práctica con herramientas digitales que permiten explorar la improvisación y la creatividad musical, adaptando el contenido a los intereses y necesidades individuales.
-                </p>
-                <p class="text-muted">
-                    En E.M.P.I.V., cada estudiante es el protagonista de su propio aprendizaje, lo que hace de nuestra metodología una experiencia autogestiva y colaborativa.
                 </p>
             </div>
             <div class="col-md-6 text-center">
-                <img src="{% static 'img/about_us_img_03.jpg' %}" class="img-fluid rounded" alt="Pedagogía" style="width: 100%;">
-            </div>
-        </section>
-
-        <!-- Sección de Talleres -->
-        <section id="talleres" class="mb-5 text-center">
-            <div class="col-md-10 mx-auto">
-                <h2 class="mb-4 text-warning"><i class="fas fa-guitar"></i> Nuestros Talleres</h2>
-                <p class="lead text-muted">
-                    Ofrecemos una variedad de talleres grupales, donde los estudiantes pueden aprender y compartir en un ambiente de colaboración y respeto.
-                </p>
-                <div class="row">
-                    {% for taller in talleres %}
-                    <div class="col-md-6 mb-4">
-                        <div style="background-color: #F0E68C; padding: 20px; border-radius: 10px;">
-                            <h4 class="text-primary">{{ taller.name }}</h4>
-                            <p>{{ taller.description }}</p>
-                            <a href="{% url 'under_construction'%}" class="btn btn-primary">Más Información</a>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
+                <img src="{% static 'img/about_us_img_03.jpg' %}" class="about-us-img3 img-fluid rounded" alt="Pedagogía">
             </div>
         </section>
 
         <!-- Sección de Crecimiento y Expansión -->
-        <section id="crecimiento" class="mb-5 text-center" style="background-color: #D8BFD8; padding: 30px; border-radius: 10px;">
+        <section id="crecimiento" class="mb-5 text-center" style="background-color: #F5DEB3; padding: 30px; border-radius: 10px;">
             <div class="col-md-10 mx-auto">
-                <h2 class="mb-4 text-purple"><i class="fas fa-seedling"></i> Crecimiento y Expansión</h2>
-                <p class="lead text-muted">
-                    En E.M.P.I.V., estamos en constante evolución. A medida que crecemos, ampliamos nuestra oferta educativa para incorporar nuevas técnicas y estilos musicales, siempre buscando enriquecer la experiencia de nuestros estudiantes.
+                <h2 class="mb-4" style="color: #8B008B;"><i class="fas fa-seedling"></i> Crecimiento y Expansión</h2>
+                <p class="lead" style="color: #4B3F3F;">
+                    En E.M.P.I.V., estamos en constante evolución. Ampliamos nuestra oferta educativa para incorporar nuevas técnicas y estilos musicales, buscando enriquecer la experiencia de nuestros estudiantes.
                 </p>
-                <img src="{% static 'img/about_us_img_05.jpg' %}" class="img-fluid rounded mt-4" alt="Crecimiento" style="width: 100%;">
+                <img src="{% static 'img/about_us_img_05.jpg' %}" class="about-us-img4 img-fluid mt-4" alt="Crecimiento">
             </div>
         </section>
-
-        <!-- Botón para Generar PDF -->
-        <div class="text-center my-5">
-            <a href="{% url 'under_construction' %}" class="btn btn-primary">Descargar Información en PDF</a>
-        </div>
     </div>
 </div>
 {% endblock %}

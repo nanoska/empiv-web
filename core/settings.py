@@ -7,6 +7,7 @@ dotenv.load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+ENV = os.getenv('ENV')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -129,27 +130,28 @@ AWS_DEFAULT_ACL = None
 
 # Separate storage for static and media files
 # if not DEBUG:
-# Production settings (using S3)
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
-STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+if ENV == 'heroku':
+    # Production settings (using S3)
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
 
-# Media storage
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+    # Media storage
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-# Static file storage
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+    # Static file storage
+    STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 
-# Location for static files collected
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+    # Location for static files collected
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-# else:
-#     # Development settings (local storage)
-#     STATIC_URL = '/static/'
-#     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+elif ENV == 'local':
+    # Development settings (local storage)
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
-#     MEDIA_URL = '/media/'
-#     MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Security settings
 if not DEBUG:
