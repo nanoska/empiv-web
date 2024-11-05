@@ -2,20 +2,20 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block title %}Crear Tema{% endblock %}
+{% block title %}Eliminar Locación{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
-    <h2 class="text-center mb-4">Agregar Nuevo Tema</h2>
+    <h2 class="text-center mb-4">Eliminar Locación</h2>
+    <p class="text-center">¿Estás seguro de que deseas eliminar la locación "{{ object.name }}"?</p>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-body">
-                    <form method="POST" enctype="multipart/form-data">
+                <div class="card-body text-center">
+                    <form method="POST">
                         {% csrf_token %}
-                        {{ form|crispy }}
                         <div class="d-grid gap-2">
-                            <button type="submit" class="btn btn-success">Guardar</button>
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
                             <a href="{% url 'location_list' %}" class="btn btn-secondary mt-2">Cancelar</a>
                         </div>
                     </form>

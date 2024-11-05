@@ -114,7 +114,7 @@
 }
 
 .btn-add-event {
-    background-color: #28a745;
+    background-color: #2e9346;
     margin-right: 10px;
 }
 
@@ -129,3 +129,11 @@
 .btn-add-location:hover {
     background-color: #e0a800;
 }
+
+.card-buttons {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 2;
+}
+

@@ -128,6 +128,12 @@ class LocationListView(ListView):
     context_object_name = 'locations'
 
 
+class LocationDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
+    model = Location
+    success_url = reverse_lazy('location_list')
+    template_name = 'events/location_confirm_delete.html'
+
+
 # %% Reservation
 
 # class EventReservationView(CreateView):

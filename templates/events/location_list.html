@@ -5,10 +5,7 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h2 class="text-center mb-4">Ubicaciones</h2>
-    <div class="d-flex justify-content-end mb-3">
-        <a href="{% url 'location_create' %}" class="btn btn-success">Agregar Ubicación</a>
-    </div>
+    <h2 class="text-center mb-4">Locaciones</h2>
     <div class="table-responsive">
         <table class="table table-hover table-bordered">
             <thead class="thead-dark">
@@ -27,9 +24,16 @@
                     <td>{{ location.address }}</td>
                     <td>{{ location.city }}</td>
                     <td>{{ location.state }}</td>
-                    <td>
-                        <a href="{% url 'location_detail' location.id %}" class="btn btn-info btn-sm">Detalles</a>
-                        <!-- Agrega más botones de acciones si es necesario -->
+                    <td class="action-buttons">
+                        <a href="{% url 'location_detail' location.id %}" class="btn btn-view" title="Ver">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+                        <a href="{% url 'location_update' location.id %}" class="btn btn-edit" title="Editar">
+                            <i class="fa-solid fa-pen"></i>
+                        </a>
+                        <a href="{% url 'location_delete' location.id %}" class="btn btn-delete" title="Eliminar">
+                            <i class="fa-solid fa-trash"></i>
+                        </a>
                     </td>
                 </tr>
                 {% endfor %}

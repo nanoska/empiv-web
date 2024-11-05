@@ -15,5 +15,7 @@ urlpatterns = [
     path('locaciones/', LocationListView.as_view(), name='location_list'),
     path('locacion/<int:pk>/', LocationDetailView.as_view(), name='location_detail'),
     path('locacion/create/', LocationCreateView.as_view(), name='location_create'),
+    path('locacion/update/<int:pk>/', LocationUpdateView.as_view(), name='location_update'),
+    path('locacion/delete/<int:pk>/', LocationDeleteView.as_view(), name='location_delete'),
 
 ]

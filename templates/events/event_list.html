@@ -6,18 +6,6 @@
 {% block content %}
 <div class="container-fluid mt-5">
   <h2 class="text-center mb-4">Eventos</h2>
-  
-  <!-- Botones Centrados de Agregar Evento y Locación -->
-  <div class="d-flex justify-content-center mb-4">
-    {% if request.user.is_staff %}
-      <a href="{% url 'event_create' %}" class="btn-add-event me-2" title="Agregar Evento">
-        <i class="fa-solid fa-calendar-plus"></i> Agregar Evento
-      </a>
-      <a href="{% url 'location_create' %}" class="btn-add-location" title="Agregar Locación">
-        <i class="fa-solid fa-location-dot"></i> Agregar Locación
-      </a>
-    {% endif %}
-  </div>
 
   <div class="row">
     {% if events %}
@@ -26,20 +14,35 @@
         <div class="col-md-4 mb-4">
           <div class="card-event border {% if event.date < today %}border-danger text-muted{% else %}border-success{% endif %}">
             
-            <!-- Badge para el próximo evento -->
-            {% if event.id == proximo_evento_id %}
-              <span class="badge bg-warning text-dark" style="position: absolute; top: 10px; left: 10px;">PRÓXIMO</span>
-            {% endif %}
+            <!-- Contenedor de Imagen y Badge -->
+            <div class="image-container">
 
-            <!-- Imagen del evento -->
-            {% if event.image %}
-              <img src="{{ event.image.url }}" class="card-img" alt="{{ event.name }}">
-            {% else %}
-              <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
-                <rect width="100%" height="100%" fill="#868e96"></rect>
-                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Imagen no disponible</text>
-              </svg>
-            {% endif %}
+              <!-- Badge para el evento próximo -->
+              {% if event.id == proximo_evento_id %}
+                  <span class="badge bg-warning text-dark badge-position">PRÓXIMO</span>
+              {% endif %}
+
+              <!-- Botones de actualizar y eliminar solo visibles para admins -->
+              {% if request.user.is_staff or request.user.is_superuser %}
+              <div class="card-buttons">
+                <a href="{% url 'event_update' event.id %}" class="btn-edit-staff me-1" title="Editar Evento">
+                  <i class="fa-solid fa-edit"></i>
+                </a>
+                <a href="{% url 'event_delete' event.id %}" class="btn-delete-staff" title="Eliminar Evento">
+                  <i class="fa-solid fa-trash"></i>
+                </a>
+              </div>
+              {% endif %}
+
+              {% if event.image %}
+                  <img src="{{ event.image.url }}" class="card-img" alt="{{ event.name }}">
+              {% else %}
+                  <svg xmlns="http://www.w3.org/2000/svg" class="d-block user-select-none" width="100%" height="200" aria-label="Placeholder: Image cap" focusable="false" role="img" preserveAspectRatio="xMidYMid slice" viewBox="0 0 318 180" style="font-size:1.125rem;text-anchor:middle">
+                      <rect width="100%" height="100%" fill="#868e96"></rect>
+                      <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Imagen no disponible</text>
+                  </svg>
+              {% endif %}
+            </div>
 
             <!-- Detalles del evento -->
             <div class="card-body text-center">
@@ -49,18 +52,7 @@
               <p><strong>Ubicación:</strong> {{ event.location.name }}</p>
             </div>
 
-            <!-- Botones de actualizar y eliminar solo visibles para admins -->
-            {% if request.user.is_staff or request.user.is_superuser %}
-            <div class="card-footer d-flex justify-content-center">
-              <a href="{% url 'event_update' event.id %}" class="btn-edit-staff" title="Editar Evento">
-                <i class="fa-solid fa-edit"></i>
-              </a>
-              <a href="{% url 'event_delete' event.id %}" class="btn-delete-staff" title="Eliminar Evento">
-                <i class="fa-solid fa-trash"></i>
-              </a>
-            </div>
-            {% endif %}
-
+            <!-- Stretched link para toda la tarjeta -->
             <a href="{% url 'event_detail' event.id %}" class="stretched-link"></a>
           </div>
         </div>

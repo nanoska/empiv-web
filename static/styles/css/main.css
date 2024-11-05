@@ -3,9 +3,7 @@
 /* Componentes */
 @import url('components/footer.css');
 @import url('components/carousel.css');
-/* @import url('components/cards.css'); */
 @import url('components/cards-events.css');
-@import url('components/cards-home.css');
 @import url('components/cards-talleres.css');
 @import url('components/forms.css');
 @import url('components/video.css');
@@ -17,7 +15,6 @@
 /* Secciones */
 @import url('sections/home.css');
 @import url('sections/about_us.css');
-@import url('sections/events.css');
 
 /* Modo oscuro */
 @import url('dark-mode.css');

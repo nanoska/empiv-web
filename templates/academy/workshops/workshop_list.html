@@ -23,7 +23,7 @@
                         <h5 class="card-title">{{ taller.name }}</h5>
                         <p class="card-text">{{ taller.description|truncatewords:20 }}</p>
                         <p class="card-text"><small class="text-muted">{{ taller.date }}</small></p>
-                        <p class="card-text"><small class="text-muted">{{ taller.init_time }} Hs.</small></p>
+                        <p class="card-text"><small class="text-muted">De {{ taller.init_time }} a {{ taller.end_time }} hs.</small></p>
                         {% if taller.location %}
                             <a href="{% url 'location_detail' taller.location.id %}" class="card-text">
                                 <strong class="text-muted">{{ taller.location }}</strong>
