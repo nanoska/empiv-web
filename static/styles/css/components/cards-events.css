@@ -56,3 +56,21 @@
 }
 
 
+/* Ajuste de filas para pantallas pequeñas */
+.row-cols-1 .col {
+  flex: 1 0 100%;
+}
+
+/* Elimina márgenes laterales en pantallas pequeñas */
+.container,
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media (max-width: 576px) {
+  .card-event {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}

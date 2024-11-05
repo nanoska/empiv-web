@@ -11,7 +11,6 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       {% if user.is_authenticated %}
         {% if user.is_staff %}
-        {% include 'navbar/navbarNormal.html' %}
           {% include 'navbar/navbarStaff.html' %}
         {% elif user.is_student %}
           {% include 'navbar/navbarStudent.html' %}

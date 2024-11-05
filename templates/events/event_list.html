@@ -4,19 +4,18 @@
 {% block title %}Eventos{% endblock %}
 
 {% block content %}
-<div class="container-fluid mt-5">
+<div class="container mt-5">
   <h2 class="text-center mb-4">Eventos</h2>
 
-  <div class="row">
+  <div class="row justify-content-center">
     {% if events %}
-    <div class="row mb-4">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4">
       {% for event in events %}
-        <div class="col-md-4 mb-4">
+        <div class="col">
           <div class="card-event border {% if event.date < today %}border-danger text-muted{% else %}border-success{% endif %}">
             
             <!-- Contenedor de Imagen y Badge -->
-            <div class="image-container">
-
+            <div class="image-container position-relative">
               <!-- Badge para el evento próximo -->
               {% if event.id == proximo_evento_id %}
                   <span class="badge bg-warning text-dark badge-position">PRÓXIMO</span>
