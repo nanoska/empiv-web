@@ -105,11 +105,12 @@
                     <span class="badge bg-warning text-dark" style="position: absolute; top: 10px; left: 10px;">PRÓXIMO</span>
                     {% endif %}
                     <img src="{{ event.image.url }}" class="card-img" alt="{{ event.name }}">
-                    <div class="card-body">
-                        <a href="{% url 'event_detail' event.id %}" class="stretched-link"></a>
+                    <!-- Detalles del evento -->
+                    <div class="card-body text-center">
                         <h5 class="card-title">{{ event.name }}</h5>
-                        <p class="card-text">{{ event.date }} | {{ event.time }}</p>
-                        <p class="card-text">{{ event.location.state }}</p>
+                        <p><strong>Fecha:</strong> {{ event.date }}</p>
+                        <p><strong>Hora:</strong> {{ event.time }}</p>
+                        <p><strong>Ubicación:</strong> {{ event.location.name }}</p>
                     </div>
                 </div>
             </div>

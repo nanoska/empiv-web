@@ -18,29 +18,6 @@
       margin-right: 0 !important;
     }
     
-    /* Asegurar que el carrusel y el video ocupen el ancho completo */
-    .carousel-inner, .video-container-fixed iframe {
-      width: 100% !important;
-    }
   }
   
-  /* Estilos específicos para tarjetas en pantallas pequeñas */
-  .taller-card,
-  .card-event {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .taller-card:hover,
-  .card-event:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Margen interno de las tarjetas */
-  .card-body {
-    padding: 15px;
-  }
   

@@ -16,11 +16,18 @@
   /* Estilos para tarjetas de eventos */
   .card-event {
     cursor: pointer;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
     text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: inherit;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    border-width: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    height: 500px;
   }
   
   /* Imagen y badge en la tarjeta de evento */
