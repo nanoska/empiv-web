@@ -1,19 +1,46 @@
 /* home.css */
 
-/* Estilos específicos para tarjetas de eventos en el home */
-.card-event-home {
-    transition: transform 0.3s ease-in-out;
-    cursor: pointer;
-    color: inherit; /* Mantén el color original del texto */
-}
-
-.card-event-home:hover {
-    transform: translateY(-10px); /* Eleva ligeramente la tarjeta al pasar el ratón */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el ratón */
+/* Márgenes generales para pantallas pequeñas */
+@media (max-width: 576px) {
+    /* Márgenes sutiles en otros elementos */
+    .container,
+    .container > .row,
+    .container > .col-md-6,
+    .container > .col-md-4 {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  
+    /* Quitar margen lateral en el carrusel y el video */
+    #carouselExampleIndicators,
+    .video-container-fixed {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
     
-}
-
-.a-event-home {
-    color: #000000; /* Color específico para enlaces en el home */
-    text-decoration: none; /* Quita subrayado a enlaces en el home */
-}
+    /* Asegurar que el carrusel y el video ocupen el ancho completo */
+    .carousel-inner, .video-container-fixed iframe {
+      width: 100% !important;
+    }
+  }
+  
+  /* Estilos específicos para tarjetas en pantallas pequeñas */
+  .taller-card,
+  .card-event {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .taller-card:hover,
+  .card-event:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Margen interno de las tarjetas */
+  .card-body {
+    padding: 15px;
+  }
+  
