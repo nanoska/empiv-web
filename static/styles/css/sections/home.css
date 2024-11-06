@@ -10,13 +10,7 @@
       padding-left: 5px;
       padding-right: 5px;
     }
-  
-    /* Quitar margen lateral en el carrusel y el video */
-    #carouselExampleIndicators,
-    .video-container-fixed {
-      margin-left: 0 !important;
-      margin-right: 0 !important;
-    }
+
     
   }
   

@@ -112,6 +112,9 @@
                         <p><strong>Hora:</strong> {{ event.time }}</p>
                         <p><strong>Ubicación:</strong> {{ event.location.name }}</p>
                     </div>
+
+                    <!-- Stretched link para toda la tarjeta -->
+                    <a href="{% url 'event_detail' event.id %}" class="stretched-link"></a>
                 </div>
             </div>
             {% endfor %}

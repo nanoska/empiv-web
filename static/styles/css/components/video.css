@@ -16,14 +16,14 @@
   border: 0;
 }
 
-
+/* Ajuste para pantallas pequeñas */
 @media (max-width: 576px) {
-
   .video-container-fixed {
-    padding-bottom: 40%; /* Relación de aspecto 16:9 */
+    padding-bottom: 56.25%; /* Mantiene la relación de aspecto 16:9 */
   }
-
+  
   .video-container-fixed iframe {
-    height: 250px; /* Ajusta la altura del video para que coincida con el texto */
+    width: 100%;
+    height: 100%;
   }
 }
