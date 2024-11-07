@@ -71,7 +71,7 @@ class EventDetailView(DetailView, FormView):
 class EventUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
     model = Event
     form_class = EventForm
-    template_name = 'events/event_update_form.html'
+    template_name = 'events/event_form.html'
     success_url = reverse_lazy('events')
 
     def get_context_data(self, **kwargs):
@@ -93,7 +93,7 @@ class EventDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
 class EventCreateView(LoginRequiredMixin, StaffRequiredMixin, CreateView):
     model = Event
     form_class = EventForm
-    template_name = 'events/event_create_form.html'
+    template_name = 'events/event_form.html'
     success_url = reverse_lazy('events')
 
     def form_valid(self, form):
