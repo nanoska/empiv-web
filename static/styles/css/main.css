@@ -11,10 +11,10 @@
 @import url('components/media.css');
 @import url('components/iframe.css');
 @import url('components/buttons.css');
+@import url('components/images.css');
 
 /* Secciones */
 @import url('sections/home.css');
-@import url('sections/about_us.css');
 @import url('sections/locaciones.css');
 
 /* Modo oscuro */
