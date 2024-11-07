@@ -12,10 +12,10 @@
 @import url('components/iframe.css');
 @import url('components/buttons.css');
 @import url('components/images.css');
+@import url('components/tables.css');
 
 /* Secciones */
 @import url('sections/home.css');
-@import url('sections/locaciones.css');
 
 /* Modo oscuro */
 @import url('dark-mode.css');

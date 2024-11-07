@@ -12,47 +12,23 @@
   </li>
   
   <!-- Talleres -->
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle {% if "talleres" in request.path %}active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+  <li class="nav-item">
+    <a class="nav-link {% if "talleres" in request.path %}active{% endif %}" href="{% url 'workshop_list' %}">
       <i class="fa-solid fa-paint-brush fa-lg"></i> Talleres
     </a>
-    <div class="dropdown-menu">
-      <a class="dropdown-item {% if "talleres/list" in request.path %}active{% endif %}" href="{% url 'workshop_list' %}">
-        <i class="fa-solid fa-eye fa-lg"></i> Ver Talleres
-      </a>
-      <a class="dropdown-item {% if "talleres/create" in request.path %}active{% endif %}" href="{% url 'workshop_create' %}">
-        <i class="fa-solid fa-plus fa-lg"></i> Agregar Taller
-      </a>
-    </div>
   </li>
 
   <!-- Eventos -->
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle {% if "event" in request.path %}active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+  <li class="nav-item">
+    <a class="nav-link {% if "eventos" in request.path and "locaciones" not in request.path %}active{% endif %}" href="{% url 'events' %}">
       <i class="fa-solid fa-calendar-days"></i> Eventos
     </a>
-    <div class="dropdown-menu">
-      <a class="dropdown-item {% if "eventos/list" in request.path %}active{% endif %}" href="{% url 'events' %}">
-        <i class="fa-regular fa-calendar-check"></i> Ver Eventos
-      </a>
-      <a class="dropdown-item {% if "evento/create" in request.path %}active{% endif %}" href="{% url 'event_create' %}">
-        <i class="fa-solid fa-calendar-plus"></i> Crear Evento
-      </a>
-    </div>
   </li>
 
   <!-- Locaciones -->
-  <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle {% if "locacion" in request.path %}active{% endif %}" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-      <i class="fa-solid fa-map-marker-alt"></i> Locaciones
+  <li class="nav-item">
+    <a class="nav-link {% if "locaciones" in request.path %}active{% endif %}" href="{% url 'location_list' %}">
+      <i class="fa-solid fa-school"></i> Locaciones
     </a>
-    <div class="dropdown-menu">
-      <a class="dropdown-item {% if "locaciones/list" in request.path %}active{% endif %}" href="{% url 'location_list' %}">
-        <i class="fa-solid fa-eye"></i> Ver Locaciones
-      </a>
-      <a class="dropdown-item {% if "locacion/create" in request.path %}active{% endif %}" href="{% url 'location_create' %}">
-        <i class="fa-solid fa-plus"></i> Agregar Locación
-      </a>
-    </div>
   </li>
 </ul>

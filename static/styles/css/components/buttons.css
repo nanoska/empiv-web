@@ -1,53 +1,45 @@
 /* buttons.css */
 
-/* Estilos para los botones de acción en las tarjetas */
-.icon-button {
-    border: none; /* Eliminar el borde extra */
-    box-shadow: none; /* Eliminar sombra extra */
-    padding: 0.375rem 0.75rem; /* Ajustar padding para que el ícono se vea bien */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 
-  .btn-warning {
-    background-color: #ffc107;
-    color: #212529;
-  }
 
-  .btn-danger {
-    background-color: #dc3545;
-    color: #fff;
-  }
+/* Botones de estilo específico */
+.btn-warning {
+  background-color: #ffc107;
+  color: #212529;
+}
 
-  .btn-warning:hover {
-    background-color: #e0a800;
-    color: #fff;
-  }
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
 
-  .btn-danger:hover {
-    background-color: #c82333;
-    color: #fff;
-  }
+.btn-warning:hover {
+  background-color: #e0a800;
+  color: #fff;
+}
 
-  .btn-reserva {
-    display: inline-block;
-    padding: 12px 24px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 8px;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    width: 100%;
+.btn-danger:hover {
+  background-color: #c82333;
+  color: #fff;
+}
+
+.btn-reserva {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  width: 100%;
 }
 
 .btn-reserva:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
-
 
 .btn-success {
   font-size: 0.9rem;
@@ -63,77 +55,42 @@
   background-color: #218838;
 }
 
-.btn-edit-staff {
+
+/* Posición de botones en la tarjeta */
+.card-buttons {
   position: absolute;
   top: 10px;
   right: 10px;
-  color: #ffc107;
-  font-size: 1.25rem;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
+  z-index: 10;
 }
 
-.btn-edit-staff:hover {
-  color: #e0a800;
+/* Botones de acciones generales */
+.action-buttons a,
+.card-buttons a {
+  padding: 6px 10px;
+  color: #fff;
+  border-radius: 5px;
   text-decoration: none;
-}
-
-.btn-delete-staff {
-  position: absolute;
-  top: 10px;
-  right: 50px;
-  color: #981408;
-  font-size: 1.25rem;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-
-.btn-delete-staff:hover {
-  color: #b33131;
-  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 
-
-
-/* Botones Centrados de Agregar Evento y Locación */
-.btn-add-event,
-.btn-add-location {
-    font-size: 1rem;
-    font-weight: bold;
-    padding: 10px 20px;
-    color: #fff;
-    border-radius: 8px;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s ease;
+.btn-view {
+  background-color: #17a2b8;
 }
 
-.btn-add-event {
-    background-color: #2e9346;
-    margin-right: 10px;
+.btn-edit {
+  background-color: #ffc107;
 }
 
-.btn-add-location {
-    background-color: #ffc107;
+.btn-delete {
+  background-color: #dc3545;
 }
 
-.btn-add-event:hover {
-    background-color: #218838;
+.action-buttons a:hover,
+.card-buttons a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: rgb(73, 73, 73);
+  background-color: aliceblue;
 }
-
-.btn-add-location:hover {
-    background-color: #e0a800;
-}
-
-.card-buttons {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  z-index: 2;
-}
-

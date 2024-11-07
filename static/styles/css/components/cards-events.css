@@ -69,13 +69,7 @@
   border-radius: 10px;
 }
 
-/* Posición de botones en la tarjeta */
-.card-buttons {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  z-index: 10;
-}
+
 
 /* Estilo de filas en pantallas pequeñas */
 .row-cols-1 .col {

@@ -4,9 +4,15 @@
 {% block title %}Eventos{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-  <h2 class="text-center mb-4">Eventos</h2>
-
+  <div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="flex-grow-1 text-center m-0">Eventos</h2>
+      {% if request.user.is_staff %}
+      <a href="{% url 'event_create' %}" class="btn btn-success ms-3">
+          <i class="fa-solid fa-plus"></i> Agregar Evento
+      </a>
+      {% endif %}
+  </div>
   <div class="row justify-content-center">
     {% if events %}
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-4">
@@ -24,10 +30,10 @@
               <!-- Botones de actualizar y eliminar solo visibles para admins -->
               {% if request.user.is_staff or request.user.is_superuser %}
               <div class="card-buttons">
-                <a href="{% url 'event_update' event.id %}" class="btn-edit-staff me-1" title="Editar Evento">
+                <a href="{% url 'event_update' event.id %}" class="btn-edit me-1" title="Editar Evento">
                   <i class="fa-solid fa-edit"></i>
                 </a>
-                <a href="{% url 'event_delete' event.id %}" class="btn-delete-staff" title="Eliminar Evento">
+                <a href="{% url 'event_delete' event.id %}" class="btn-delete" title="Eliminar Evento">
                   <i class="fa-solid fa-trash"></i>
                 </a>
               </div>
