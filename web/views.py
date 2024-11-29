@@ -91,64 +91,64 @@ class HomeView(TemplateView):
 
 
     
-class ContactView(TemplateView):
-    template_name = 'main/contact.html'
+# class ContactView(TemplateView):
+#     template_name = 'main/contact.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form'] = ContactForm()
-        context['message'] = self.request.GET.get('message', '')
-        return context
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context['form'] = ContactForm()
+#         context['message'] = self.request.GET.get('message', '')
+#         return context
 
-    def post(self, request, *args, **kwargs):
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            # Procesar los datos del formulario
-            subject = form.cleaned_data['subject']
-            name = form.cleaned_data['name']
+#     def post(self, request, *args, **kwargs):
+#         form = ContactForm(request.POST)
+#         if form.is_valid():
+#             # Procesar los datos del formulario
+#             subject = form.cleaned_data['subject']
+#             name = form.cleaned_data['name']
 
-            phone = form.cleaned_data['phone'].strip().replace(' ', '').replace('-', '')
-            if phone.startswith('0'):
-                phone = '549' + phone[1:]
+#             phone = form.cleaned_data['phone'].strip().replace(' ', '').replace('-', '')
+#             if phone.startswith('0'):
+#                 phone = '549' + phone[1:]
 
-            email = form.cleaned_data['email']
-            message = form.cleaned_data['message']
+#             email = form.cleaned_data['email']
+#             message = form.cleaned_data['message']
 
-            # Crear el contexto para el correo
-            context = {
-                'name': name,
-                'email': email,
-                'phone': phone,
-                'message': message,
-                'subject': subject,
-                'whatsapp_url': f"https://wa.me/+{phone}?text=Hola, {name}.",
-            }
-
-
-            # Enviar el correo
-            send_mail(
-                f'Nuevo mensaje de {name} - {subject}',
-                render_to_string('emails/contact_email.html', context),
-                settings.DEFAULT_FROM_EMAIL,
-                [settings.DEFAULT_FROM_EMAIL],
-                fail_silently=False,
-            )
-
-            # Enviar el correo al usuario
-            send_mail(
-                f'¡Gracias por tu mensaje, {name}! Nos pondremos en contacto contigo pronto.',
-                render_to_string('emails/contact_email_user.html', context),
-                settings.DEFAULT_FROM_EMAIL,
-                [email],
-                fail_silently=False,
-            )
+#             # Crear el contexto para el correo
+#             context = {
+#                 'name': name,
+#                 'email': email,
+#                 'phone': phone,
+#                 'message': message,
+#                 'subject': subject,
+#                 'whatsapp_url': f"https://wa.me/+{phone}?text=Hola, {name}.",
+#             }
 
 
-            # Redirigir o mostrar un mensaje de éxito
-            return render(request, 'main/contact.html', {'form': form, 'message': 'Mensaje enviado con éxito.'})
+#             # Enviar el correo
+#             send_mail(
+#                 f'Nuevo mensaje de {name} - {subject}',
+#                 render_to_string('emails/contact_email.html', context),
+#                 settings.DEFAULT_FROM_EMAIL,
+#                 [settings.DEFAULT_FROM_EMAIL],
+#                 fail_silently=False,
+#             )
 
-        # Si el formulario no es válido, renderizar la página con los errores
-        return render(request, 'main/contact.html', {'form': form})
+#             # Enviar el correo al usuario
+#             send_mail(
+#                 f'¡Gracias por tu mensaje, {name}! Nos pondremos en contacto contigo pronto.',
+#                 render_to_string('emails/contact_email_user.html', context),
+#                 settings.DEFAULT_FROM_EMAIL,
+#                 [email],
+#                 fail_silently=False,
+#             )
+
+
+#             # Redirigir o mostrar un mensaje de éxito
+#             return render(request, 'main/contact.html', {'form': form, 'message': 'Mensaje enviado con éxito.'})
+
+#         # Si el formulario no es válido, renderizar la página con los errores
+#         return render(request, 'main/contact.html', {'form': form})
 
 
 
