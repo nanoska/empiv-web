@@ -32,11 +32,19 @@
     border-radius: 10px;
 }
 
-
-/* Imagen circular y más pequeña */
 .contact-img {
-    width: 80%;
-    height: 80%;
+    width: auto;
+    max-width: 400px; /* Tamaño máximo para pantallas grandes */
+    height: auto;
+    aspect-ratio: 1; /* Mantiene una proporción 1:1 */
     object-fit: cover;
     border-radius: 50%;
+    margin: 0 auto; /* Centra la imagen */
+}
+
+/* Ajustes para dispositivos pequeños */
+@media screen and (max-width: 576px) {
+    .contact-img {
+        aspect-ratio: 1;
+    }
 }

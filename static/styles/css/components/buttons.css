@@ -1,8 +1,5 @@
 /* buttons.css */
 
-
-
-/* Botones de estilo específico */
 .btn-warning {
   background-color: #ffc107;
   color: #212529;
@@ -92,5 +89,5 @@
   transform: scale(1.1);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   color: rgb(73, 73, 73);
-  background-color: aliceblue;
+  background-color: gainsboro;
 }

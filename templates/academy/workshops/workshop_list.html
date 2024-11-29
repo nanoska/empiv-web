@@ -30,10 +30,10 @@
                         {% if request.user.is_staff or request.user.is_superuser %}
                         <div class="card-buttons">
                             <a href="{% url 'workshop_update' taller.id %}" class="btn-edit me-1" title="Editar Evento">
-                            <i class="fa-solid fa-edit"></i>
+                                <i class="fa-solid fa-edit"></i>
                             </a>
                             <a href="{% url 'workshop_delete' taller.id %}" class="btn-delete" title="Eliminar Evento">
-                            <i class="fa-solid fa-trash"></i>
+                                <i class="fa-solid fa-trash"></i>
                             </a>
                         </div>
                         {% endif %}

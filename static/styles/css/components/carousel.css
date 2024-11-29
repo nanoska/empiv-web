@@ -43,7 +43,7 @@
   }
 
   .carousel-inner {
-    height: 100px; /* Ajusta la altura máxima en pantallas pequeñas */
+    height: 125px; /* Ajusta la altura máxima en pantallas pequeñas */
   }
 
   .container #carouselExampleIndicators {
