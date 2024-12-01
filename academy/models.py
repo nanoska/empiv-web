@@ -36,13 +36,13 @@ from events.models import *
 class Workshop(models.Model):
 
     DAY_CHOICES = [
-        ('Monday', 'Lunes'),
-        ('Tuesday', 'Martes'),
-        ('Wednesday', 'Miércoles'),
-        ('Thursday', 'Jueves'),
-        ('Friday', 'Viernes'),
-        ('Saturday', 'Sábado'),
-        ('Sunday', 'Domingo')
+        ('Lunes', 'Lunes'),
+        ('Martes', 'Martes'),
+        ('Miércoles', 'Miércoles'),
+        ('Jueves', 'Jueves'),
+        ('Viernes', 'Viernes'),
+        ('Sábado', 'Sábado'),
+        ('Domingo', 'Domingo')
     ]
 
     TYPE_CHOICES = [

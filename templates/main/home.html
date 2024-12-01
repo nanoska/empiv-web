@@ -92,12 +92,12 @@
             <div class="col-md-4 mb-4">
                 <div class="card-event border {% if event.date < today %}border-danger text-muted{% else %}border-success{% endif %}">
                     {% if event.id == proximo_evento_id %}
-                    <span class="badge bg-warning text-dark" style="position: absolute; top: 10px; left: 10px;">PRÓXIMO</span>
+                    <span class="badge bg-warning text-dark badge-position">PRÓXIMO</span>
                     {% endif %}
                     <img src="{{ event.image.url }}" class="card-img" alt="{{ event.name }}">
                     <!-- Detalles del evento -->
-                    <div class="card-body text-center">
-                        <h5 class="card-title">{{ event.name }}</h5>
+                    <h5 class="card-title">{{ event.name }}</h5>
+                    <div class="card-body">
                         <p><strong>Fecha:</strong> {{ event.date }}</p>
                         <p><strong>Hora:</strong> {{ event.time }}</p>
                         <p><strong>Ubicación:</strong> {{ event.location.name }}</p>
@@ -113,6 +113,8 @@
             <a href="{% url 'events' %}" class="btn btn-warning">Ver más Eventos</a>
         </div>
     </div>
+</div>
+
 {% comment %} 
     <!-- Formulario de Contacto -->
     <div class="row mb-4">
@@ -135,9 +137,7 @@
             </div>
             {% endif %}
         </div>
-    </div> {% endcomment %}
-</div>
-
+    </div> 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const whatsappButton = document.getElementById('whatsapp-btn');
@@ -152,5 +152,5 @@
             window.open(whatsappURL, '_blank');
         });
     });
-</script>
+</script> {% endcomment %}
 {% endblock %}

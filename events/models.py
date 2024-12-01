@@ -23,7 +23,7 @@ class Event(models.Model):
     STATE_CHOICES = (
         ('vigente', 'vigente'),
         ('pasado', 'pasado'),
-       ('proximo', 'proximo'),
+        ('proximo', 'proximo'),
     )
 
     name = models.CharField(max_length=255)
@@ -34,6 +34,7 @@ class Event(models.Model):
     location = models.ForeignKey(Location, on_delete=models.CASCADE, related_name='events')
     image = models.ImageField(upload_to='events')
     state = models.CharField(max_length=255, choices=STATE_CHOICES, default='proximo') # Ver cambio automatico de state con serializers?
+    reservation_link = models.URLField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

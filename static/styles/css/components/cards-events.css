@@ -30,18 +30,23 @@
   border-top-right-radius: 10px;
 }
 
-/* Detalles de la tarjeta */
-.card-event .card-body {
-  padding: 20px;
-}
-
 /* Título de la tarjeta */
 .card-event .card-title {
   font-weight: bold;
   color: #2c3e50;
-  height: 55px;
-  padding: 5px;
+  height: 50px;
+  padding: 20px;
 }
+
+/* Detalles de la tarjeta */
+.card-event .card-body {
+  padding: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  justify-items: auto;
+  text-align: center;
+}
+
 
 /* Enlace para hacer la tarjeta clickeable */
 .card-event .stretched-link {

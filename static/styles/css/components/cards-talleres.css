@@ -21,6 +21,13 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
+.taller-card .card-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
 .card-title {
     font-size: 1.5rem;
     color: #333;
