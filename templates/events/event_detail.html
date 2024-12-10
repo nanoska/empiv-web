@@ -31,7 +31,7 @@
             <p>{{ object.description }}</p>
             <p><strong>Fecha:</strong> {{ object.date }}</p>
             <p><strong>Hora:</strong> {{ object.time }}</p>
-            <p><strong>Ubicación:</strong> <a href="{% url 'location_detail' object.location.id %}" target="_blank" rel="noopener noreferrer">{{ object.location.name }}</a></p>
+            <p><strong>Ubicación:</strong> <a href="{% url 'location_detail' object.location.id %}" rel="noopener noreferrer">{{ object.location.name }}</a></p>
         </div>
     </div>
 

@@ -7,46 +7,34 @@
 
 <div class="container mt-4">
     <!-- Banner Section -->
-    <div id="carouselExampleIndicators" class="carousel slide mb-4" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner custom-carousel-height">
-            <div class="carousel-item active">
-                <img src="{% static 'img/banner1.jpg' %}" class="d-block w-100" alt="First slide">
+    <div class="banner-container position-relative">
+        <div id="carouselExampleIndicators" class="carousel slide mb-4" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
-            <div class="carousel-item">
-                <img src="{% static 'img/banner2.jpg' %}" class="d-block w-100" alt="Second slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>...</h1>
-                    <p>...</p>
+            <div class="carousel-inner custom-carousel-height">
+                <div class="carousel-item active">
+                    <img src="{% static 'img/banner1.jpg' %}" class="d-block w-100" alt="First slide">
                 </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'img/banner3.jpg' %}" class="d-block w-100" alt="Third slide">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1>...</h1>
-                    <p>...</p>
+                <div class="carousel-item">
+                    <img src="{% static 'img/banner2.jpg' %}" class="d-block w-100" alt="Second slide">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/banner3.jpg' %}" class="d-block w-100" alt="Third slide">
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+        <!-- Título fijo superpuesto -->
+        <div class="banner-title position-absolute text-center w-100">
+            <h1>Bienvenidxs a la E.M.P.I.V.</h1>
+        </div>
     </div>
+    
 
     <!-- Bienvenida y Video -->
     <div class="container mb-4">
-        <div class="text-center mb-4">
-            <h1>Bienvenidxs a la E.M.P.I.V.!</h1>
-        </div>
         <div class="row">
             <div class="col-lg-6 d-flex justify-content-center align-items-center text-center mb-4">
                 <div>
@@ -115,42 +103,4 @@
     </div>
 </div>
 
-{% comment %} 
-    <!-- Formulario de Contacto -->
-    <div class="row mb-4">
-        <div class="col-lg-6 mb-4 text-center">
-            <h1>Contacto</h1>
-            <p>Por favor, proporciona los detalles del asunto por el cual te comunicas con nosotros. Te responderemos lo antes posible.</p>
-            <img src="{% static 'img/contact_image.png' %}" class="contact-img" alt="Contact Image">
-        </div>
-        <div class="col-lg-6 mb-4 d-flex align-items-center">
-            <form method="POST" action="">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <div class="d-grid gap-2">
-                    <button type="button" id="whatsapp-btn" class="btn btn-info mt-2"><i class="fab fa-whatsapp"></i> Enviar a WhatsApp</button>
-                </div>
-            </form>
-            {% if message %}
-            <div class="alert alert-success mt-4">
-                {{ message }}
-            </div>
-            {% endif %}
-        </div>
-    </div> 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const whatsappButton = document.getElementById('whatsapp-btn');
-        whatsappButton.addEventListener('click', function() {
-            const name = document.querySelector('input[name="name"]').value;
-            const email = document.querySelector('input[name="email"]').value;
-            const subject = document.querySelector('select[name="subject"]').value;
-            const message = document.querySelector('textarea[name="message"]').value;
-            const phoneNumber = '5491160470561';
-            const whatsappMessage = `Hola, soy ${name}. Mi correo es ${email}. Asunto: ${subject}. Mensaje: ${message}`;
-            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-            window.open(whatsappURL, '_blank');
-        });
-    });
-</script> {% endcomment %}
 {% endblock %}

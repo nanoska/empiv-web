@@ -1,5 +1,20 @@
 /* home.css */
 
+.banner-container {
+  position: relative;
+}
+
+.banner-title {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  color: rgb(230, 162, 46);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  font-size: 3rem;
+  font-weight: bold;
+}
+
 /* Márgenes generales para pantallas pequeñas */
 @media (max-width: 576px) {
     /* Márgenes sutiles en otros elementos */
