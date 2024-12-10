@@ -40,7 +40,8 @@ class EventListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['today'] = timezone.now().date()
-        context['proximo_evento_id'] = self.get_proximo_evento_id()    
+        context['proximo_evento_id'] = self.get_proximo_evento_id() 
+        context['page_title'] = 'Eventos'
         return context
     
 
@@ -133,25 +134,3 @@ class LocationDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):
     success_url = reverse_lazy('location_list')
     template_name = 'events/location_confirm_delete.html'
 
-
-# %% Reservation
-
-# class EventReservationView(CreateView):
-#     model = EventReservation
-#     form_class = EventReservationForm
-#     template_name = 'events/event_reservation.html'
-
-#     def get_success_url(self):
-#         return reverse('event_detail', args=[self.object.event.id])
-
-#     def form_valid(self, form):
-#         form.instance.event = get_object_or_404(Event, pk=self.kwargs['pk'])
-#         messages.success(self.request, 'Reservación exitosa.')
-#         return super().form_valid(form)
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context['event'] = get_object_or_404(Event, pk=self.kwargs['pk'])
-#         context['wp_phone_number'] = WP_PHONE_NUMBER
-#         return context
-    
