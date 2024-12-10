@@ -29,33 +29,47 @@
                     <div class="card-body d-flex flex-column text-center">
                         {% if request.user.is_staff or request.user.is_superuser %}
                         <div class="card-buttons">
-                            <a href="{% url 'workshop_update' taller.id %}" class="btn-edit me-1" title="Editar Evento">
-                                <i class="fa-solid fa-edit"></i>
+                            <a href="{% url 'workshop_update' taller.id %}" class="btn btn-edit me-1" title="Editar Evento">
+                                <i class="fa-solid fa-pen"></i>
                             </a>
-                            <a href="{% url 'workshop_delete' taller.id %}" class="btn-delete" title="Eliminar Evento">
+                            <a href="{% url 'workshop_delete' taller.id %}" class="btn btn-delete" title="Eliminar Evento">
                                 <i class="fa-solid fa-trash"></i>
                             </a>
                         </div>
                         {% endif %}
-                        
+
                         <h5 class="card-title">{{ taller.name }}</h5>
-                        <p class="card-text">{{ taller.description|truncatewords:50 }}</p>
-                        <p class="card-text"><small class="text-muted">{{ taller.date }}</small></p>
-                        <p class="card-text"><small class="text-muted">{{ taller.day }}</small></p>
-                        <p class="card-text"><small class="text-muted">De {{ taller.init_time }} a {{ taller.end_time }} hs.</small></p>
+                        <div class="accordion" id="accordionExample">
+                            <div class="accordion-item">
+                              <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                  Mas información
+                                </button>
+                              </h2>
+                              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample" style="">
+                                <div class="accordion-body">
+                                  {{ taller.description }}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        <p class="card-text">{{ taller.date }}</p>
+                        <p class="card-text">{{ taller.day }}</p>
+                        <p class="card-text">De {{ taller.init_time }} a {{ taller.end_time }} hs.</p>
+                        
                         {% if taller.location %}
                             <a href="{% url 'location_detail' taller.location.id %}" class="card-text">
-                                <strong class="text-muted"> {{ taller.location }}</strong>
+                                <strong class="text-muted">{{ taller.location }}</strong>
                             </a>
                         {% else %}
                             <p class="card-text text-muted"><strong>Ubicación no disponible</strong></p>
                         {% endif %}
-                        <!-- Botón de más información (WhatsApp) -->
-                        <a href="https://wa.me/{{ wp_phone_number }}?text=Hola, quisiera información sobre el taller {{ taller.name }}" target="_blank" class="btn btn-success mt-auto w-100">
-                            <i class="fab fa-whatsapp"></i> Más Información
-                        </a>
 
                     </div>
+                    <!-- Botón de más información (WhatsApp) -->
+                    <a href="https://wa.me/{{ wp_phone_number }}?text=Hola, quisiera información sobre el taller {{ taller.name }}" target="_blank" class="btn btn-success">
+                        <i class="fab fa-whatsapp"></i> Más Información
+                    </a>
                 </div>
             </div>
             {% endfor %}

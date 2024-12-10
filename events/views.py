@@ -56,33 +56,12 @@ class EventDetailView(DetailView, FormView):
         context['today'] = timezone.now().date()
         return context
 
-    # def get_form(self, form_class=None):
-    #     event = self.get_object()
-    #     form = super().get_form(form_class)
-    #     form.fields['event'].initial = event
-    #     form.fields['event'].widget.attrs['readonly'] = True
-    #     return form
-
-    def form_valid(self, form):
-        form.save()
-        messages.success(self.request, 'Reserva realizada con éxito.')
-        return redirect(reverse('event_detail', args=[self.get_object().id]))
-
 
 class EventUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
     model = Event
     form_class = EventForm
     template_name = 'events/event_form.html'
     success_url = reverse_lazy('events')
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['form'] = self.get_form()
-        context['event'] = self.get_object()
-        return context
-
-    def form_valid(self, form):
-        return super().form_valid(form)
 
 
 class EventDeleteView(LoginRequiredMixin, StaffRequiredMixin, DeleteView):

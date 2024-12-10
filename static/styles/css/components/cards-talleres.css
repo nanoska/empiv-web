@@ -7,12 +7,12 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Comienza el contenido desde arriba */
     align-items: center;
-    height: auto; /* Reduce la altura para minimizar el espacio en blanco */
-    max-width: 100%; /* Asegura que la tarjeta no se expanda */
+    height: auto;
+    max-width: 100%;
     padding: 15px;
-    background-color: #f8f9fa; /* Fondo claro */
+    background-color: #f8f9fa;
     text-align: center;
 }
 
@@ -28,23 +28,68 @@
     border-radius: 10px;
 }
 
-.card-title {
+.taller-card .card-title {
     font-size: 1.5rem;
     color: #333;
     font-weight: bold;
-    margin-bottom: 10px; /* Reduce el margen inferior */
+    margin-bottom: 10px;
 }
 
-.card-text {
+
+.taller-card .card-body {
+    margin-bottom: 5px;
+}
+
+.taller-card .card-text {
     font-size: 1rem;
     color: #555;
-    margin: 10px 0; /* Reduce el margen para equilibrar el espacio */
+
+}
+
+/* Estilos para el acordeón dentro de la tarjeta */
+.taller-card .accordion {
+    width: 100%; /* Ocupa todo el ancho de la tarjeta */
+    background: transparent;
+    border: none;
+}
+
+.taller-card .accordion-item {
+    border: none; 
+    background: transparent;
+}
+
+.taller-card .accordion-button {
+    background-color: #e9ecef;
+    border-radius: 10px;
+    color: #333;
+    font-weight: bold;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.taller-card .accordion-button:not(.collapsed) {
+    background-color: #dbd8d6; /* Fondo cuando el acordeón está abierto */
+}
+
+.taller-card .accordion-button:focus {
+    box-shadow: none;
+}
+
+.taller-card .accordion-collapse {
+    margin-top: 10px;
+    border: none;
+    background: transparent;
 }
 
 /* Ajuste de padding en dispositivos móviles */
 @media (max-width: 576px) {
     .taller-card {
-        height: auto; /* Permite que se ajuste en pantallas más pequeñas */
         padding: 10px;
+    }
+
+    .taller-card .card-img {
+        height: 200px;
     }
 }

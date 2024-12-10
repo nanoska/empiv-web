@@ -46,8 +46,8 @@ class WorkshopCreateView(LoginRequiredMixin, StaffRequiredMixin, CreateView):
 
 class WorkshopUpdateView(LoginRequiredMixin, StaffRequiredMixin, UpdateView):
     model = Workshop
+    form_class = WorkshopForm
     template_name = 'academy/workshops/workshop_form.html'
-    fields = '__all__'
     success_url = reverse_lazy('workshop_list')
 
 

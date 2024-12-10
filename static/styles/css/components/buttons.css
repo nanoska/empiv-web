@@ -39,9 +39,10 @@
 }
 
 .btn-success {
+  display: inline-block;
   font-size: 0.9rem;
   font-weight: bold;
-  background-color: #28a745;
+  background-color: #34914a;
   border: none;
   border-radius: 5px;
   padding: 10px;

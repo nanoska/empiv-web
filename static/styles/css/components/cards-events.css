@@ -31,7 +31,7 @@
   color: #2c3e50;
   margin-top: 20px;
   /* Quitar height fija y dejar que el contenido defina la altura */
-  /* height: 50px; */
+  height: 45px;
 }
 
 .card-event .card-body {

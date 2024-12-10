@@ -16,8 +16,8 @@ class EventForm(forms.ModelForm):
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Descripción completa'}),
             'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'time': forms.TimeInput(attrs={'class': 'form-control', 'type': 'time'}),
-            'location': forms.Select(attrs={'class': 'form-control'}),
-            'image': forms.FileInput(attrs={'class': 'form-control'}),
+            'location': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Ubicación'}),
+            'image': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Imagen'}),
         }
 
     def __init__(self, *args, **kwargs):
@@ -54,43 +54,3 @@ class LocationForm(forms.ModelForm):
         self.helper.form_method = 'post'
         self.helper.add_input(Submit('submit', 'Guardar'))
 
-
-
-# class EventReservationForm(forms.ModelForm):
-#     class Meta:
-#         model = EventReservation
-#         fields = ['event', 'name', 'email', 'phone']  # Asegúrate de incluir el campo 'event'
-
-#     def __init__(self, *args, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         self.fields['event'].widget = forms.HiddenInput()  # Ocultar el campo 'event' si no es editable
-
-
-# class ReservationForm(forms.ModelForm):
-#     class Meta:
-#         model = Reservation
-#         fields = ['event', 'name', 'email', 'phone']
-#         widgets = {
-#             'event': forms.Select(attrs={'class': 'form-control'}),
-#             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre'}),
-#             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-#             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Teléfono'}),
-#         }
-
-
-# class EventReservationForm(forms.ModelForm):
-#     class Meta:
-#         model = Reservation
-#         fields = ['event', 'name', 'email', 'phone']
-
-#         widgets = {
-#             'event': forms.Select(attrs={'class': 'form-control'}),
-#             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre'}),
-#             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Email'}),
-#             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ej: 11 1234-5678'}),
-#         }
-
-#     def __init__(self, *args, **kwargs):
-#         super().__init__(*args, **kwargs)
-#         self.fields['event'].widget.attrs['readonly'] = True
-#         self.fields['event'].disabled = True

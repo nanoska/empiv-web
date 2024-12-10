@@ -30,10 +30,10 @@
               <!-- Botones de actualizar y eliminar solo visibles para admins -->
               {% if request.user.is_staff or request.user.is_superuser %}
               <div class="card-buttons">
-                <a href="{% url 'event_update' event.id %}" class="btn-edit me-1" title="Editar">
-                  <i class="fa-solid fa-edit"></i>
+                <a href="{% url 'event_update' event.id %}" class="btn btn-edit me-1" title="Editar">
+                  <i class="fa-solid fa-pen"></i>
                 </a>
-                <a href="{% url 'event_delete' event.id %}" class="btn-delete" title="Eliminar">
+                <a href="{% url 'event_delete' event.id %}" class="btn btn-delete" title="Eliminar">
                   <i class="fa-solid fa-trash"></i>
                 </a>
               </div>
