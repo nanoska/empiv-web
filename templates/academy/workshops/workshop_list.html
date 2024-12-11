@@ -39,20 +39,7 @@
                         {% endif %}
 
                         <h5 class="card-title">{{ taller.name }}</h5>
-                        <div class="accordion" id="accordion{{ taller.name }}">
-                            <div class="accordion-item">
-                              <h2 class="accordion-header" id="heading{{ taller.name }}">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ taller.name }}" aria-expanded="false" aria-controls="collapse{{ taller.name }}">
-                                  Mas información
-                                </button>
-                              </h2>
-                              <div id="collapse{{ taller.name }}" class="accordion-collapse collapse" aria-labelledby="heading{{ taller.name }}" data-bs-parent="#accordion{{ taller.name }}">
-                                <div class="accordion-body">
-                                  {{ taller.description }}
-                                </div>
-                              </div>
-                            </div>
-                          </div>
+                        
                         <p class="card-text">{{ taller.date }}</p>
                         <p class="card-text">{{ taller.day }}</p>
                         <p class="card-text">De {{ taller.init_time }} a {{ taller.end_time }} hs.</p>
