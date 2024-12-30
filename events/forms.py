@@ -14,7 +14,7 @@ class EventForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre del evento'}),
             'short_description': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Descripción corta'}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Descripción completa'}),
-            'date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
+            'date': forms.DateInput(attrs={'class': 'form-control'}),
             'time': forms.TimeInput(attrs={'class': 'form-control', 'type': 'time'}),
             'location': forms.Select(attrs={'class': 'form-control', 'placeholder': 'Ubicación'}),
             'image': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Imagen'}),
