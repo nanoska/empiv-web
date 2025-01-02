@@ -1,0 +1,93 @@
+/* Estilo general para todas las imágenes */
+.about-us-img {
+    max-width: 75%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Estilo para títulos con sombreado */
+h2 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo específico para la imagen de Introducción e Identidad */
+#introduccion .about-us-img {
+    border-radius: 10px;
+    shape-outside: none;
+}
+
+/* Estilo específico para la imagen de Impacto Social */
+#impacto .about-us-img {
+    float: center;
+    width: auto;
+    border-radius: 50%;
+    justify-items: auto;
+}
+
+/* Estilo específico para la imagen de Propuesta Concreta */
+#propuesta .about-us-img {
+    border-radius: 30px;
+    width: 100%;
+
+}
+
+/* Estilo específico para la imagen de Iniciación en el Instrumento */
+#iniciacion .about-us-img {
+    width: 60%;
+    display: flex;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+/* Estilo específico para la imagen de Técnicas Especializadas */
+#tecnicas .about-us-img {
+    width: 70%;
+    margin: 0 auto;
+    display: block;
+    border-radius: 50%;
+}
+
+/* Fondo con imagen para Proyecto E.M.P.I.V. */
+#proyecto_empiv {
+    background-position: center;
+    padding: 60px 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    border-radius: 15px; 
+    background-size: cover; 
+    background-position: center; 
+    padding: 60px 30px; 
+    color: rgb(199, 190, 177); 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+    border-radius: 15px;
+}
+
+/* Ajustes adicionales para evitar superposición */
+#proyecto_empiv .about-us-img {
+    display: none;
+}
+
+/* Columnas para imágenes de impacto social y técnicas especializadas */
+#impacto, #tecnicas {
+    display: flex;
+    align-items: center;
+}
+
+#impacto .about-us-img, #tecnicas .about-us-img {
+    flex: 1;
+}
+
+#impacto p, #tecnicas ul {
+    flex: 2;
+    padding: 20px;
+}
+
+/* Estilo adicional para imágenes en columnas */
+#iniciacion, #impacto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+#iniciacion img, #impacto img {
+    flex: 1 1 40%;
+}
