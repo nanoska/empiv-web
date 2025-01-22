@@ -39,11 +39,11 @@ class LocationForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nombre de la ubicación'}),
             'address': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Dirección'}),
             'city': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ciudad'}),
-            'state': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Estado'}),
+            'state': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Localidad'}),
             'phone': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Teléfono'}),
             'email': forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Correo electrónico'}),
             'website': forms.URLInput(attrs={'class': 'form-control', 'placeholder': 'Sitio web'}),
-            'image': forms.FileInput(attrs={'class': 'form-control'}),
+            'image': forms.FileInput(attrs={'class': 'form-control', 'placeholder': 'Imagen'}),
             'capacity': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Capacidad'}),
             'iframe': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Iframe del mapa'}),
         }
